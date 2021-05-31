@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { ReactElement, FC } from 'react';
 import burgerLogo from '../../../asserts/burger-logo.png';
 import './Logo.css';
 
-const logo = () => (
+const logo: FC = (): ReactElement => (
     <div className="Logo">
         <img src={burgerLogo} alt="My burger"/>
     </div>

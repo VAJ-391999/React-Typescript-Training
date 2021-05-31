@@ -1,4 +1,4 @@
-import React, {MouseEventHandler} from 'react';
+import React, {MouseEventHandler, ReactElement, FC} from 'react';
 import './BuildControls.css';
 import BuildControl from './BuildControl/BuildControl';
 
@@ -21,7 +21,7 @@ interface Props {
 
 
 
-const buildControls = (props: Props) => (
+const buildControls: FC<Props> = (props: Props): ReactElement => (
     <div className="BuildControls">
         <p>Current Price: <strong>{props.price.toFixed(2)}</strong></p>
         {controls.map(ctrl => {

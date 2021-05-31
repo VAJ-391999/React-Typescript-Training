@@ -1,4 +1,4 @@
-import React, {MouseEventHandler} from 'react';
+import React, {MouseEventHandler, FC, ReactElement} from 'react';
 import Aux from '../../../hoc/Aux1';
 import Button from '../../UI/Button/Button';
 
@@ -9,7 +9,7 @@ type Props = {
   purchaseContinued: MouseEventHandler
 }
 
-const OrderSummary =({ingrediants, price, purchaseCancelled, purchaseContinued}: Props) => {
+const OrderSummary: FC<Props> = ({ingrediants, price, purchaseCancelled, purchaseContinued}: Props): ReactElement => {
     
     const ingredientSummary = Object.keys(ingrediants)
         .map(igKey => {

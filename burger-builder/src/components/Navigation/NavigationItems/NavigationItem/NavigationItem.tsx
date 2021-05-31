@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactElement, FC } from 'react';
 import './NavigationItem.css';
 import {NavLink } from 'react-router-dom';
 
@@ -7,7 +7,7 @@ type Props = {
     children: any
 }
 
-const navigationItem = ({link, children}) => (
+const navigationItem: FC<Props> = ({link, children}: Props): ReactElement => (
     <li className="NavigationItem">
     
         <NavLink to={link} exact>

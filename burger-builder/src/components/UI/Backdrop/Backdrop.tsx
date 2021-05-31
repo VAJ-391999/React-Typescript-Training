@@ -1,4 +1,4 @@
-import React, {MouseEventHandler} from 'react';
+import React, {MouseEventHandler, ReactElement, FC, ReactNode} from 'react';
 import './Backdrop.css';
 
 type Props = {
@@ -6,10 +6,9 @@ type Props = {
     show: boolean 
 }
 
- const backdrop =({clicked, show}: Props) => {
+ const backdrop: FC<Props> = ({clicked, show}: Props): ReactElement | null => {
      return (
         show ? <div className="Backdrop" onClick={clicked}></div> : null)
-     
  };
 
  /*const backdrop =(props) => {

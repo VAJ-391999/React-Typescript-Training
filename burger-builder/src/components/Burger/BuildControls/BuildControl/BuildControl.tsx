@@ -1,4 +1,4 @@
-import React, {MouseEventHandler} from 'react';
+import React, {MouseEventHandler, FC, ReactElement} from 'react';
 import './BuildControl.css';
 
 interface Props {
@@ -8,7 +8,7 @@ interface Props {
     added: MouseEventHandler
 }
 
-const buildControl = (props: Props) => (
+const buildControl: FC<Props> = (props: Props): ReactElement => (
     <div className="BuildControl">
         <div className="Label">{props.label}</div>
         <button 

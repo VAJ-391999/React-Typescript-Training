@@ -1,23 +1,44 @@
 //import { array } from 'prop-types';
-import React , { useEffect } from 'react';
+import React , { useEffect, ReactElement, FC } from 'react';
 import axios from '../../axios-orders';
 import Order from '../../components/Order/Order';
 import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
 import * as actions from '../../store/actions/index';
-import {connect} from 'react-redux';
+import {connect, useDispatch, useSelector} from 'react-redux';
 import Spinner from '../../components/UI/Spinner/Spinner';
+import { RootState } from '../../index';
 
-const Orders = (props) => {
+const Orders = (props): ReactElement => {
 
     const { onFetchOrders } = props;
 
+        //const dispatch = useDispatch();
+
+        const orders = useSelector((state: RootState) => {
+            return state.order.orders
+        });
+
+        const loading =  useSelector((state: RootState) => {
+            return state.order.loading
+        });
+
+        const token =  useSelector((state: RootState) => {
+            return state.auth.token
+        });
+
+        const userId =  useSelector((state: RootState) => {
+            return state.auth.userId
+        });
+
+      // const onFetchOrders= (token, userId) => dispatch(actions.fetchOrder(token, userId));
+
     useEffect(() => {
-        onFetchOrders(props.token, props.userId);
+        onFetchOrders(token, userId);
     }, [onFetchOrders]);
     
-    let orders = <Spinner />;
-    if(!props.loading) {
-        orders = props.orders.map(order => {
+    let orders1 = <Spinner />;
+    if(!loading) {
+        orders1 = orders.map(order => {
             return <Order 
             key={order.id}
             ingrediants={order.ingrediants}
@@ -27,19 +48,19 @@ const Orders = (props) => {
 
     return (
         <div>
-            {orders}
+            {orders1}
         </div>
     );
 }
 
-const mapStateToProps = state => {
+/*const mapStateToProps = state => {
     return {
         orders: state.order.orders,
         loading: state.order.loading,
         token: state.auth.token,
         userId: state.auth.userId
     };
-};
+};*/
 
 const mapDispatchToProps = dispatch => {
     return {
@@ -47,4 +68,5 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default withErrorHandler(connect(mapStateToProps, mapDispatchToProps)(Orders), axios);
+export default withErrorHandler(connect(null, mapDispatchToProps)(Orders), axios);
+//export default withErrorHandler(Orders, axios);

@@ -1,4 +1,4 @@
-import React, {MouseEventHandler} from 'react';
+import React, {MouseEventHandler, ReactElement, FC} from 'react';
 import './Button.css';
 
 /*const button = (props) => (
@@ -18,7 +18,7 @@ import './Button.css';
     children?: any
   };
 
-  const button = ({btnType, clicked, disabled, children }: Props) => {
+  const button: FC<Props> = ({btnType, clicked, disabled, children }: Props): ReactElement => {
     let cssClasses: string = "Button" + " " + btnType ;
     return (
       <button

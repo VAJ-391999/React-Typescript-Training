@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { ReactElement, FC } from 'react';
 import './Order.css';
 
-const order = (props) => {
+const order = (props): ReactElement => {
 
     const ingrediants: any[] = [];
 

@@ -1,15 +1,19 @@
-import React, { useState, FC } from 'react';
+import React, { useState, FC, ReactElement } from 'react';
 import Aux from '../../hoc/Aux1';
 import './Layout.css';
 import ToolBar from '../Navigation/ToolBar/ToolBar';
 import SideDrawer from '../Navigation/SideDrawer/SideDrawer';
-import {connect} from 'react-redux';
+import {connect, useSelector} from 'react-redux';
 
 type Props = {
     children: any
 }
 
-const Layout = (props) =>  {
+const Layout: FC<Props> = (props: Props): ReactElement =>  {
+
+    const isAuthenticated = useSelector((state: any) => {
+        return state.auth.token !== null
+    });
 
     const[sideDrawerIsVisible, setsideDrawerIsVisible] = useState<boolean>(false);
 
@@ -24,9 +28,9 @@ const Layout = (props) =>  {
     
     return (
         <Aux>
-            <ToolBar drawerToggleClicked={slideDrawerToggleClicked} isAuth={props.isAuthenticated}/>
+            <ToolBar drawerToggleClicked={slideDrawerToggleClicked} isAuth={isAuthenticated}/>
             <SideDrawer 
-                isAuth={props.isAuthenticated}
+                isAuth={isAuthenticated}
                 opend={sideDrawerIsVisible}
                 closed={sideDrawerCloseHandler}
                 />
@@ -37,11 +41,12 @@ const Layout = (props) =>  {
     );
 }
 
-const mapStateToProps = state => {
+/*const mapStateToProps = state => {
     return {
         isAuthenticated: state.auth.token !== null
     };
 };
 
 
-export default connect(mapStateToProps)(Layout);
+export default connect(mapStateToProps)(Layout);*/
+export default Layout;

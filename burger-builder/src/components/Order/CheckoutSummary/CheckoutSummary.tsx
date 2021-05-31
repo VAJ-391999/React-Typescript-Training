@@ -1,4 +1,4 @@
-import React, {MouseEventHandler} from 'react';
+import React, {MouseEventHandler, ReactElement, FC} from 'react';
 import Burger from '../../Burger/Burger';
 import Button from '../../UI/Button/Button';
 import './CheckoutSummary.css';
@@ -9,7 +9,7 @@ type Props = {
     checkoutContinued: MouseEventHandler
 }
 
-const checkoutSummary = ({ingrediants, checkoutCancelled, checkoutContinued }) => {
+const checkoutSummary: FC<Props> = ({ingrediants, checkoutCancelled, checkoutContinued }: Props): ReactElement => {
     return (
         <div className="CheckoutSummary">
             <h1>we hope it tastes well!</h1>

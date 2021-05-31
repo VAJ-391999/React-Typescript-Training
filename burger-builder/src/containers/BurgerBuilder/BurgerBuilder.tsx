@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useCallback, JSXElementConstructor} from 'react';
+import React, {useState, useEffect, useCallback, FC, ReactElement} from 'react';
 import Aux from '../../hoc/Aux1';
 import Burger from '../../components/Burger/Burger';
 import BuildControls from '../../components/Burger/BuildControls/BuildControls';
@@ -10,25 +10,26 @@ import withErrorHandle from '../../hoc/withErrorHandler/withErrorHandler';
 import { withRouter} from 'react-router-dom';
 import { connect, useDispatch, useSelector } from 'react-redux';
 import * as burgerBuilderAction from '../../store/actions/index';
+import { RootState, AppDispatch } from '../../index';
 
 
-const BurgerBuilder = (props) => {
+const BurgerBuilder = (props): ReactElement => {
     const [purchasing, setPurchasing] = useState(false);
 
-    const dispatch = useDispatch();
+    const dispatch = useDispatch<AppDispatch>();
     const ings = useSelector((state: any) => {
         return state.burgerBuilder.ingrediants;
     });
 
-    const price = useSelector( (state: any) => {
+    const price = useSelector( (state: RootState) => {
         return state.burgerBuilder.totalPrice;
     });
 
-    const error = useSelector( (state: any) => {
+    const error = useSelector( (state: RootState) => {
         return state.burgerBuilder.error;
     });
 
-    const isAuthenticated = useSelector( (state: any) => {
+    const isAuthenticated = useSelector( (state: RootState) => {
         return state.auth.token !== null;
     });
 

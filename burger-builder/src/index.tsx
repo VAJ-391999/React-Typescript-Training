@@ -57,6 +57,9 @@ const store = createStore(rootReducer, composeEnhancers(
   applyMiddleware(thunk, sagaMiddleware)
 ));
 
+export type RootState = ReturnType<typeof store.getState>
+export type AppDispatch = typeof store.dispatch
+
 sagaMiddleware.run(withauth);
 sagaMiddleware.run(watchBurgerBuilder);
 sagaMiddleware.run(watchOrder);

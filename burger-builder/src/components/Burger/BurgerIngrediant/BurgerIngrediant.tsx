@@ -1,8 +1,8 @@
-import React, {Component} from 'react';
+import React, { ReactElement } from 'react';
 import './BurgerIngrediant.css';
 import PropTypes from 'prop-types';
 
-const BurgerIngrediant = (props) => {
+const BurgerIngrediant = (props): ReactElement | null => {
     
     let ingrediant: null | JSX.Element = null;
 

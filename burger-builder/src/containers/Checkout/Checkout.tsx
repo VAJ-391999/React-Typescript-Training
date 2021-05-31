@@ -1,30 +1,40 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, FC, ReactElement } from 'react';
 import CheckoutSummary from '../../components/Order/CheckoutSummary/CheckoutSummary';
-import { Route, Redirect } from 'react-router-dom';
+import { Route, Redirect, RouteComponentProps } from 'react-router-dom';
 import ContactData from '../ContactData/ContactData';
-import { connect } from 'react-redux';
+import { connect, useSelector } from 'react-redux';
 import * as actions from '../../store/actions/index';
+import { RootState } from '../../index';
 
 
-const Checkout = (props) =>  {
+const Checkout: FC<RouteComponentProps> = (props: RouteComponentProps): ReactElement =>  {
+
+    const ings = useSelector((state: RootState) => {
+        return state.burgerBuilder.ingrediants
+    });
+
+    const purchased = useSelector((state: RootState) => {
+        return state.order.purchased
+    });
 
     const checkoutCancelledHnadler = () => {
         props.history.goBack();
     }
 
     const checkoutContinuedHandler = () => {
+        console.log("replace point");
         props.history.replace('/checkout/contact-data');
     }
 
     let summary = <Redirect to="/" />
 
-    if (props.ings) {
-        const purchasedRedirect = props.purchased ? <Redirect to="/" />  : null;
+    if (ings) {
+        const purchasedRedirect = purchased ? <Redirect to="/" />  : null;
         summary = (
             <div>
                 {purchasedRedirect}
                 <CheckoutSummary 
-                    ingrediants={props.ings}
+                    ingrediants={ings}
                     checkoutCancelled={checkoutCancelledHnadler}
                     checkoutContinued={checkoutContinuedHandler}
                 />
@@ -36,7 +46,7 @@ const Checkout = (props) =>  {
     return summary;
 }
 
-const mapStateToProps = state => {
+/*const mapStateToProps = state => {
     return {
         ings: state.burgerBuilder.ingrediants,
         purchased : state.order.purchased
@@ -45,4 +55,5 @@ const mapStateToProps = state => {
 
 
 
-export default connect(mapStateToProps)(Checkout);
+export default connect(mapStateToProps)(Checkout);*/
+export default Checkout;

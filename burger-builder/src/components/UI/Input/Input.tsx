@@ -1,4 +1,4 @@
-import React, {MouseEventHandler} from 'react';
+import React, {MouseEventHandler, ReactElement, FC} from 'react';
 import './Input.css';
 
 type Props = {
@@ -12,7 +12,7 @@ type Props = {
     changed: MouseEventHandler
 };
 
-const input = ({invalid, shouldValidate, touched,  elemenetType, elementConfig, value, changed }: Props) => {
+const input: FC<Props> = ({invalid, shouldValidate, touched,  elemenetType, elementConfig, value, changed }: Props): ReactElement => {
 
     let inputElement: null | JSX.Element = null;
     const inputClasses = ["InputElement"];

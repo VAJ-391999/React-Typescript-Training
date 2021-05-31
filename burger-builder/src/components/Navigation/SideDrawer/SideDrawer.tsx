@@ -1,4 +1,4 @@
-import React, {MouseEventHandler} from 'react';
+import React, {MouseEventHandler, ReactElement, FC} from 'react';
 import Logo from '../Logo/Logo';
 import NavigationItems from '../NavigationItems/NavigationItems';
 import './SideDrawer.css';
@@ -11,7 +11,7 @@ type Props = {
     isAuth: boolean
 }
 
-const sideDrawer = ({opend, closed, isAuth}: Props) => {
+const sideDrawer: FC<Props> = ({opend, closed, isAuth}: Props): ReactElement => {
     let attachedClasses = ["SideDrawer","Close"];
 
     if(opend) {

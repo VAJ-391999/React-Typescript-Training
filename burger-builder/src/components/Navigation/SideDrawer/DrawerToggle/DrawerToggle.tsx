@@ -1,11 +1,11 @@
-import React, {MouseEventHandler} from 'react';
+import React, {MouseEventHandler, FC, ReactElement} from 'react';
 import './DrawerToggle.css';
 
 type Props = {
     clicked: MouseEventHandler 
 }
 
-const drawerToggle = ({clicked}: Props) => (
+const drawerToggle: FC<Props> = ({clicked}: Props): ReactElement => (
     <div className="DrawerToggle" onClick={clicked}>
         <div></div>
         <div></div>

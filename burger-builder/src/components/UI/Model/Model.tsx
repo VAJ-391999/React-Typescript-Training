@@ -1,4 +1,4 @@
-import React, {MouseEventHandler} from 'react';
+import React, {MouseEventHandler, ReactElement, FC} from 'react';
 import './Model.css';
 import Aux from '../../../hoc/Aux1';
 import Backdrop from '../Backdrop/Backdrop';
@@ -9,7 +9,7 @@ type Props = {
     children: any
 }
 
-const Model = ({show, modelClosed, children}: Props) => {
+const Model: FC<Props> = ({show, modelClosed, children}: Props): ReactElement => {
    /* shouldComponentUpdate ( nextProps, nextState ) {
         return nextProps.show != props.show ||nextProps.children !== props.children ;
     }*/

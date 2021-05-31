@@ -1,4 +1,4 @@
-import React,{MouseEventHandler} from 'react';
+import React,{MouseEventHandler, ReactElement, FC} from 'react';
 import Logo from '../Logo/Logo';
 import './ToolBar.css';
 import NavigationItems from '../NavigationItems/NavigationItems';
@@ -9,7 +9,7 @@ type Props = {
     isAuth: boolean
 }
 
-const toolbar = ({drawerToggleClicked, isAuth}: Props) => (
+const toolbar: FC<Props> = ({drawerToggleClicked, isAuth}: Props): ReactElement => (
     <header className="ToolBar">
         <DrawerToggle clicked={drawerToggleClicked} />
         <div>

@@ -8,7 +8,7 @@ const INGREDIANT_PRICE = {
     bacon: 0.7
 };
 
-interface InitState {
+export interface InitState {
     ingrediants: null | any,
     totalPrice: number,
     error: boolean | string,

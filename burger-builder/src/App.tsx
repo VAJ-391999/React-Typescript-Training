@@ -88,7 +88,7 @@ const App: FC<RouteComponentProps> = (props: RouteComponentProps): ReactElement 
             />
           )
         })}
-  
+        <Route path="/checkout" render={(props) => <Checkout {...props} />}/>
         <Redirect to="/" />
       </Switch>
     );

@@ -1,11 +1,12 @@
 import  * as actionTypes from '../actions/actionType';
 import { updateOject } from '../../shared/utility';
+import { InitState } from '../../interfaces/orderInitState';
 
-interface InitState {
+/*interface InitState {
     orders: [],
     loading: boolean,
     purchased: boolean
-}
+}*/
 
 const initialState: InitState = {
     orders: [],

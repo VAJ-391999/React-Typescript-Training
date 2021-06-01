@@ -1,5 +1,6 @@
 import * as actionType from '../actions/actionType';
 import { updateOject } from '../../shared/utility';
+import { InitState } from '../../interfaces/burgerBuilderInitState';
 
 const INGREDIANT_PRICE = {
     salad: 0.5,
@@ -8,12 +9,12 @@ const INGREDIANT_PRICE = {
     bacon: 0.7
 };
 
-export interface InitState {
+/*export interface InitState {
     ingrediants: null | any,
     totalPrice: number,
     error: boolean | string,
     building: boolean
-}
+}*/
 
 const initialState: InitState = {
     ingrediants: null,
@@ -22,7 +23,7 @@ const initialState: InitState = {
     building: false
 };
 
-const reducer = (state = initialState, action) => {
+const reducer = (state = initialState, action): InitState => {
     switch (action.type) {
         case actionType.ADD_INGREDIANT:
             const updatedIngrediant = {[action.ingrediantName]: state.ingrediants[action.ingrediantName] + 1}

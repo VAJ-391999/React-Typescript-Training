@@ -1,14 +1,15 @@
 //import React from 'react;'
 import * as actionType from '../actions/actionType';
 import { updateOject } from '../../shared/utility';
+import { InitState } from '../../interfaces/authInitState';
 
-interface InitState {
+/*interface InitState {
     token: null | any,
     userId: null | any,
     error: null | string,
     loading: boolean,
     authRedirectPath: string
-}
+}*/
 
 const initstate: InitState = {
     token: null,

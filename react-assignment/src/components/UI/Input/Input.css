@@ -1,0 +1,28 @@
+.Input {
+    padding: 20px;
+    text-align: left;
+}
+
+.Input label {
+    color: black;
+    
+    font-weight: bold;
+}
+
+.Input input {
+    width: 100%;
+    margin-top: 15px;
+    border: black;
+    background-color: lightgray !important;
+    height: 40px;
+    align-items: left;
+    border-radius: 3px;
+}
+
+.Input input:focus {
+    border: 1px solid black !important;
+}
+
+.Input input:hover {
+    border: 1px solid black !important;
+}

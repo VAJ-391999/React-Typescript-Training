@@ -1,6 +1,6 @@
 import React, { useEffect, FC, ReactElement } from 'react';
 import CheckoutSummary from '../../components/Order/CheckoutSummary/CheckoutSummary';
-import { Route, Redirect, RouteComponentProps } from 'react-router-dom';
+import { Route, Redirect, RouteComponentProps, useHistory, useRouteMatch } from 'react-router-dom';
 import ContactData from '../ContactData/ContactData';
 import { connect, useSelector } from 'react-redux';
 import * as actions from '../../store/actions/index';
@@ -8,6 +8,9 @@ import { RootState } from '../../index';
 
 
 const Checkout: FC<RouteComponentProps> = (props: RouteComponentProps): ReactElement =>  {
+
+    let history = useHistory();
+    let match = useRouteMatch();
 
     const ings = useSelector((state: RootState) => {
         return state.burgerBuilder.ingrediants
@@ -18,12 +21,13 @@ const Checkout: FC<RouteComponentProps> = (props: RouteComponentProps): ReactEle
     });
 
     const checkoutCancelledHnadler = () => {
-        props.history.goBack();
+        history.goBack();
     }
 
     const checkoutContinuedHandler = () => {
         console.log("replace point");
-        props.history.replace('/checkout/contact-data');
+        console.log("Props:", props);
+        history.replace('/checkout/contact-data');
     }
 
     let summary = <Redirect to="/" />
@@ -38,7 +42,7 @@ const Checkout: FC<RouteComponentProps> = (props: RouteComponentProps): ReactEle
                     checkoutCancelled={checkoutCancelledHnadler}
                     checkoutContinued={checkoutContinuedHandler}
                 />
-                <Route path={props.match.path + '/contact-data'} component={ContactData}/>
+                <Route path={match.path + '/contact-data'} component={ContactData}/>
             </div>
         )
     }

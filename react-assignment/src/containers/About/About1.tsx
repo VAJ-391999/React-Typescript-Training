@@ -2,7 +2,7 @@ import React, { ReactElement, FC } from 'react';
 import Layout from '../../components/Layout/Layout';
 import './About.css'
 
-const About: FC = (): ReactElement => {
+const About1: FC = (): ReactElement => {
     return (
         <Layout>
             <div className="About">
@@ -14,4 +14,4 @@ const About: FC = (): ReactElement => {
     );
 };
 
-export default About;
+export default About1;

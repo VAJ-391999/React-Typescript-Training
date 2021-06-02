@@ -1,17 +1,17 @@
 import React, { ReactElement, FC } from 'react';
 import Layout from '../../components/Layout/Layout';
-import './Contact.css';
+import './Home.css';
 
-const Contact: FC = (): ReactElement => {
+const Home2: FC = (): ReactElement => {
     return(
         <Layout>
-           <div className="Contact">
+           <div className="Home">
             <h1>
-                    I am in Contact page
+                    I am in Home2
                 </h1>
            </div>
         </Layout>
     );
 };
 
-export default Contact;
+export default Home2;

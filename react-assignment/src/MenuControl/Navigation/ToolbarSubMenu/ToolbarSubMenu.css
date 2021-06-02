@@ -1,0 +1,13 @@
+.paper {
+    position: absolute;
+    top: 80%;
+    transition: all 400ms linear;
+}
+
+.paper li a {
+    color: black;
+    background-color: white;
+}
+
+
+

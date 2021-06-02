@@ -1,5 +1,5 @@
 import React, { ReactElement, FC } from 'react';
-import Layout from '../Layout/Layout';
+import Layout from '../../components/Layout/Layout';
 import'./Home.css';
 
 const Home: FC = (): ReactElement => {

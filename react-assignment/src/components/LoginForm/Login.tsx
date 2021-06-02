@@ -6,7 +6,7 @@ import { updateOject } from '../../shared/utility';
 import { Link, Redirect, Route, RouteComponentProps } from 'react-router-dom';
 import SignUp from '../SignUpForm/SignUp';
 import Layout from '../Layout/Layout';
-import Home from '../Home/Home';
+import Home from '../../containers/Home/Home';
 import { useHistory } from 'react-router-dom';
 
 

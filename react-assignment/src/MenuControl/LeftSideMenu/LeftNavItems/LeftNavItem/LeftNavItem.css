@@ -1,0 +1,20 @@
+.LeftNavItem {
+    margin-bottom: 10px;
+    display: block;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+.LeftNavItem a {
+    color: white;
+    text-decoration: none;
+    width: 100%;
+    box-sizing: border-box;
+    display: block;
+}
+
+.LeftNavItem a:hover,
+.LeftNavItem a:active,
+.LeftNavItem a.active {
+    color: darkcyan;
+}

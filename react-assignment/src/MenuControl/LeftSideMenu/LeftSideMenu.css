@@ -1,5 +1,6 @@
 .LeftSideMenu {
-    position: absolute;
+    position: fixed;
+    scroll-behavior: smooth;
     top: 55px;
     left: 0%;
     background-color: black;

@@ -11,7 +11,8 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import { DataGrid,
+import {
+  DataGrid,
   GridRowsProp,
   GridColDef,
   GridValueFormatterParams,
@@ -19,7 +20,8 @@ import { DataGrid,
   GridLinkOperator,
   GridFilterModel,
   GridToolbarContainer,
-  GridToolbarExport  } from '@material-ui/data-grid';
+  GridToolbarExport
+} from '@material-ui/data-grid';
 
 const useStyles = makeStyles({
   table: {
@@ -48,9 +50,10 @@ const columns: GridColDef[] = [
     headerName: 'First Name',
     width: 150
   },
-  { field: 'lastename',
+  {
+    field: 'lastename',
     headerName: 'Last Name',
-    width: 150, resizable: true 
+    width: 150, resizable: true
   },
   {
     field: 'full',
@@ -58,7 +61,8 @@ const columns: GridColDef[] = [
     width: 160, valueGetter: GetFull, sortComparator: (v1, v2, cellParams1, cellParams2) =>
       GetFull(cellParams1).localeCompare(GetFull(cellParams2)),
   },
-  { field: 'date',
+  {
+    field: 'date',
     headerName: 'Year',
     width: 150,
     valueFormatter: (params: GridValueFormatterParams) =>
@@ -123,26 +127,26 @@ const MyDownloads = () => {
 
 
   return (
-    <Layout>
-      <div className="MyDownloads">
-        <h1>I am in Mydownloads</h1>
-        
-        <h3>Table view with grid</h3>
-        <div style={{ height: 300, width: '20%', flexGrow: 1, display: 'flex'  }}>
-          <XGrid 
-            rows={rows1}
-            columns={columns}
-            rowHeight={30}
-            sortingOrder={['desc', 'asc']}
-            sortModel={sortModel}
-            filterModel={filterModel}
-            pageSize={200}
-            columnBuffer={2}
-            
-            />
-        </div>
+
+    <div className="MyDownloads">
+      <h1>I am in Mydownloads</h1>
+
+      <h3>Table view with grid</h3>
+      <div style={{ height: 300, width: '20%', flexGrow: 1, display: 'flex' }}>
+        <XGrid
+          rows={rows1}
+          columns={columns}
+          rowHeight={30}
+          sortingOrder={['desc', 'asc']}
+          sortModel={sortModel}
+          filterModel={filterModel}
+          pageSize={200}
+          columnBuffer={2}
+
+        />
       </div>
-    </Layout>
+    </div>
+
   );
 };
 

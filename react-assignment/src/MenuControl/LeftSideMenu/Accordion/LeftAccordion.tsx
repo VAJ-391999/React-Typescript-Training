@@ -2,14 +2,18 @@ import { ILeftAccordion } from '../../../Interfaces/ToolbarSubMenuList';
 
 export const leftaccordion: ILeftAccordion[] = [
     {
-        heading: "My Profile",
+        heading: "My Info",
         menulist: [{
-            title: "My Photo",
-            path: "/myprofile/myphoto"
+            title: "My Profile",
+            path: "/myinfo/myprofile"
         }, 
         {
             title: "My Downloads",
-            path: "/myprofile/mydownloads"
+            path: "/myinfo/mydownloads"
+        },
+        {
+            title: "My Team",
+            path: "/myinfo/myteam"
         }
         ]
     },

@@ -4,13 +4,13 @@ import './About.css'
 
 const About: FC = (): ReactElement => {
     return (
-        <Layout>
-            <div className="About">
-                <h1>
-                    I am in About page
+
+        <div className="About">
+            <h1>
+                I am in About page
             </h1>
-            </div>
-        </Layout>
+        </div>
+
     );
 };
 

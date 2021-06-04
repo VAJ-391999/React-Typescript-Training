@@ -1,0 +1,12 @@
+.MyTeam {
+    margin-top: 100px;
+}
+
+.RemoveButton {
+    display: none;
+}
+
+.Memberlist {
+    display: inline-block;
+    margin-right: 10px;
+}

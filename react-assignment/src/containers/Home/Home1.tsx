@@ -3,14 +3,14 @@ import Layout from '../../components/Layout/Layout';
 import './Home.css';
 
 const Home1: FC = (): ReactElement => {
-    return(
-        <Layout>
-           <div className="Home">
+    return (
+
+        <div className="Home">
             <h1>
-                    I am in Home1
+                I am in Home1
                 </h1>
-           </div>
-        </Layout>
+        </div>
+
     );
 };
 

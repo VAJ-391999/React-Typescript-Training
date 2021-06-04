@@ -3,7 +3,7 @@ import Paper from '@material-ui/core/Paper';
 import MenuItem from '@material-ui/core/MenuItem';
 import MenuList from '@material-ui/core/MenuList';
 import { submenulist } from './SubMenuList';
-import { Link, Route } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import './ToolbarSubMenu.css';
 
 
@@ -27,7 +27,7 @@ const ToolbarSubMenu = ({ clicked, name }: { clicked: MouseEventHandler, name: s
             { submenulist.map((list, index) => {
                if (list.name === name) {
                 return list.menulist.map((t1) => {
-                    return <MenuItem onClick={clicked}><Link to={t1.path}>{t1.title}</Link></MenuItem>
+                    return <MenuItem key={index} onClick={clicked}><NavLink to={t1.path}>{t1.title}</NavLink></MenuItem>
                 })
                }
             })}

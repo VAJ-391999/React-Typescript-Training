@@ -42,7 +42,7 @@ const LeftSideMenu: FC = (): ReactElement => {
         <div>
             {leftaccordion.map((list, index) => {
                 return (
-                    <Accordion>
+                    <Accordion  key={index}>
                         <AccordionSummary
 
                             aria-controls="panel1bh-content"

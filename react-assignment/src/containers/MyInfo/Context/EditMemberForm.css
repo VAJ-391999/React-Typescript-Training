@@ -1,0 +1,22 @@
+.EditForm{
+    background-color: darkgray;
+    display: block;
+    text-align: center;
+}
+
+.EditForm h1{
+    color: darkcyan;
+}
+
+.EditForm .MuiFormControl-root {
+    width: 40%;
+    margin: 10px;
+}
+
+.EditForm .MuiFilledInput-underline:after{
+    border-bottom: 2px solid darkcyan;
+}
+
+.EditForm .MuiFormLabel-root.Mui-focused {
+    color: darkcyan;
+}

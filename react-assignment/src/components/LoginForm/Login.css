@@ -27,8 +27,9 @@
     padding: 30px;
 }
 
+
 .LoginButton {
-   margin: 15px !important;
+  margin-top: 10px !important;
 
 }
 
@@ -42,4 +43,8 @@
 .LoginForm a:hover {
     color: black;
     font-weight: bold;
+}
+
+.LoginButton {
+    margin: 15px!important;
 }

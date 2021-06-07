@@ -88,21 +88,22 @@ const rows1: GridRowsProp = [
 
 const MyDownloads = () => {
 
-  const [downloadData, setDownloadData] = useState<any>([]);
+  const [downloadData, setDownloadData] = useState<any>();
+  const[search, setSearch] = useState<string>("");
   const classes = useStyles();
 
   useEffect(() => {
-    axios.get('https://jsonplaceholder.typicode.com/users')
+    const data = axios.get('https://jsonplaceholder.typicode.com/users')
       .then(response => {
         const users = response.data.slice(0, 4);
-        setDownloadData(users)
-        return
+        setDownloadData(response.data);
+        users.map((user: any,index: any) => {
+         return console.log("id",user.id)
+        })
       })
-    downloadData.map((u: any) => {
-      console.log(u.id)
-    })
-
   }, []);
+  console.log("DownloadData",downloadData) 
+  
 
   const filterModel: GridFilterModel = {
     items: [
@@ -129,10 +130,24 @@ const MyDownloads = () => {
   return (
 
     <div className="MyDownloads">
+      <input type="text" placeholder="Search" onChange={(e) => setSearch(e.target.value)} />
+      
+     
+      {downloadData && downloadData.filter((item: any) => {
+        if(search === "") {
+          console.log("item", item)
+          return item
+        } else if (item.name.toLowerCase().includes(search.toLowerCase())) {
+          return item
+        }
+      })
+      .map((u:any, index: any) => {
+        return <p key={index}>{u.name}</p>
+      })}
       <h1>I am in Mydownloads</h1>
 
       <h3>Table view with grid</h3>
-      <div style={{ height: 300, width: '20%', flexGrow: 1, display: 'flex' }}>
+      <div style={{ height: 300, width: '100%', flexGrow: 1, display: 'flex' }}>
         <XGrid
           rows={rows1}
           columns={columns}

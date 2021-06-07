@@ -1,6 +1,21 @@
 .MyTeam {
-    margin-top: 100px;
+    background-color: lightgray;
+     position:fixed;
+     top:8%;
+    left: 9%;
+    padding:0;
+    margin:0;
+    width: 100%;
+    height: 100%;
+    transition: all 300ms ease-out;
+    overflow: scroll;
 }
+
+.MyTeam h1 {
+    text-align: left;
+    display: inline-block;
+}
+
 
 .RemoveButton {
     display: none;
@@ -10,3 +25,36 @@
     display: inline-block;
     margin-right: 10px;
 }
+
+.AddFrom{
+    padding: 30px;
+    height: auto;
+    background-color: darkgray;
+    box-sizing: border-box;
+    border-radius: 5px;
+    transition: all 300ms ease-out;
+}
+
+.AddFrom .mylabel {
+  vertical-align: top;
+
+}
+
+.AddFrom .MuiFormControl-root {
+    width: 40%;
+    margin: 10px;
+}
+
+.AddFrom .MuiFilledInput-underline:after{
+    border-bottom: 2px solid darkcyan;
+}
+
+.AddFrom .MuiFormLabel-root.Mui-focused {
+    color: darkcyan;
+}
+
+.form-heading{
+    color: darkcyan;
+    text-align: center;
+}
+

@@ -1,5 +1,7 @@
-import React, { createContext, useEffect, useReducer } from 'react';
+import { Button } from '@material-ui/core';
+import React, { createContext, useEffect, useReducer, useCallback } from 'react';
 import MyTeam from '../MyTeam';
+
 
 
 interface ITeamMemberList {
@@ -11,7 +13,8 @@ interface ITeamMemberList {
 let memberInit: ITeamMemberList[] = [{
     membername: 'Nita' ,
     memberproject: 'Project 1',
-    id: 0
+    id: 0,
+  
 }]
 
 
@@ -27,6 +30,10 @@ const memberReducer = (state: ITeamMemberList[] = memberInit, action: ACTIONTYPE
             console.log("Add", action.payload)
             return  [...state, action.payload]
         case 'REMOVE':
+            //const HandleToggle = useCallback(() => console.log(action.payload, typeof action.payload), []);
+            //const index = state.findIndex(x => x.id === action.payload);
+            //console.log("index for delete", state[index])
+            //debugger
             return [...state, state.splice(action.payload, 1)]
         case 'EDIT':
             return state.map((mem, index) => mem.id === action.EditId ?  {...mem, membername: action.payload.membername, memberproject: action.payload.memberproject} : mem)

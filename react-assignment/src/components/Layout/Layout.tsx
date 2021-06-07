@@ -1,6 +1,9 @@
 import React, { FC, ReactElement } from 'react';
 import Toolbar from '../../MenuControl/Navigation/Toolbar/Toolbar';
 import LeftSideMenu from '../../MenuControl/LeftSideMenu/LeftSideMenu';
+import './Layout.css';
+import Paper from '@material-ui/core/Paper';
+import Grid from '@material-ui/core/Grid';
 
 type Props = {
     children: any
@@ -8,10 +11,10 @@ type Props = {
 
 const Layout = (props: Props): ReactElement => {
     return (
-        <div>
+        <div className="Layout">
             <Toolbar />
             <LeftSideMenu />
-            <main>
+            <main className="main">
                 {props.children}
             </main>
         </div>

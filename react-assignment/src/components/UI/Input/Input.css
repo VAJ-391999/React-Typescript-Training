@@ -3,26 +3,20 @@
     text-align: left;
 }
 
+
 .Input label {
     color: black;
-    
     font-weight: bold;
 }
 
-.Input input {
+.Input .MuiFormControl-root{
     width: 100%;
-    margin-top: 15px;
-    border: black;
-    background-color: lightgray !important;
-    height: 40px;
-    align-items: left;
-    border-radius: 3px;
+    margin-top: 10px;
+}
+.Input .MuiFilledInput-underline:after{
+    border-bottom: 2px solid darkcyan;
 }
 
-.Input input:focus {
-    border: 1px solid black !important;
-}
-
-.Input input:hover {
-    border: 1px solid black !important;
+.Input .MuiFormLabel-root.Mui-focused {
+    color: darkcyan;
 }

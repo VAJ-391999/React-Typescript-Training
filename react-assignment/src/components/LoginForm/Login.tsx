@@ -8,6 +8,7 @@ import SignUp from '../SignUpForm/SignUp';
 import Layout from '../Layout/Layout';
 import Home from '../../containers/Home/Home';
 import { useHistory } from 'react-router-dom';
+import TextField from '@material-ui/core/TextField';
 
 
 
@@ -40,9 +41,17 @@ const Login = () => {
 
     const history = useHistory();
 
-  /* const inputChangeHandler = (event: any, formName: string) => {
-        //alert('you have logged in');
-
+    const changeHandler = (e: any, inputIdentifier: string) => {
+        console.log(e.target.value);
+        const updaedLoginForm = {
+            ...formInfo, 
+        }
+        setFormInfo((pre: any) => ({
+            ...pre,
+            [inputIdentifier]: {...formInfo, value: e.target.value}
+        }))
+        console.log("updated login form", updaedLoginForm.username.value )
+        
     }
 
     const formElementArrary: any[] = [];
@@ -55,11 +64,11 @@ const Login = () => {
         console.log(key)
     }
 
-    console.log(formElementArrary.length)
+    console.log(formElementArrary)
 
     
 
-    let form = formElementArrary.map(formEl => {
+   let form = formElementArrary.map(formEl => {
         return <Input 
             key={formEl.id}
             name={formEl.id}
@@ -67,9 +76,11 @@ const Login = () => {
             elementConfig={formEl.config.elementConfig}
             value={formEl.config.value}
             touched={formEl.config.touched}
-            changed={(event) => inputChangeHandler(event, formEl.id)}
+            changed={(event: any) => changeHandler(event, formEl.id)}
         />
-    })*/
+    })
+
+    
 
     const loginHandler = () =>{
         setSignIn(true);
@@ -78,8 +89,7 @@ const Login = () => {
 
     let content = (
         <>
-        <Input name="Username" placeholder="Enter Your Username" />
-        <Input name="Password" placeholder="Enter Your Passsword" />
+        {form}
          <a href="#">Forget Password?</a>
          <Button variant="contained" className="LoginButton" onClick={() => loginHandler()} >LOGIN</Button>
          <p>Don't have Account? <Link to='/signup'>Sign Up</Link></p>

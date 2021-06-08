@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import Login from './components/LoginForm/Login';
 import './App.css';
-import {Route, Switch} from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import SignUp from './components/SignUpForm/SignUp';
 import Home from './containers/Home/Home';
 import About from './containers/About/About';
@@ -15,44 +15,67 @@ import About1 from './containers/About/About1';
 import Contact1 from './containers/Contact/Contact1';
 import MyTeam from './containers/MyInfo/MyTeam';
 import { MemberList } from './containers/MyInfo/Context/MyTeamMember'
+import AuthContext, { AuthenticationContext } from './containers/MyInfo/Context/Authcontext';
+
 
 function App() {
-  
-  const routeMain = (
+
+  const { authenticate, dispatch } = useContext(AuthenticationContext)
+
+
+  console.log(authenticate)
+  let routeMain: JSX.Element | null = null
+
+  routeMain = (<Layout>
     <Switch>
-          <Route path="/myinfo/myteam" exact component={MemberList} />
-          <Route path="/myinfo/mydownloads" exact component={MyDownloads} />
-          <Route path="/myinfo/myprofile" exact component={MyPhoto} />
-          <Route path="/home/home2" exact component={Home2} />
-          <Route path="/home/home1" exact component={Home1} />
-          <Route path="/about/about1" exact component={About1} />
-          <Route path="/contact/contact1" exact component={Contact1} />
-          <Route path="/contact" exact component={Contact} />
-          <Route path="/about" exact component={About} />
-          <Route path="/home" exact component={Home} />
+      <Route path="/myinfo/myteam" exact component={MemberList} />
+      <Route path="/myinfo/mydownloads" exact component={MyDownloads} />
+      <Route path="/myinfo/myprofile" exact component={MyPhoto} />
+      <Route path="/home/home2" exact component={Home2} />
+      <Route path="/home/home1" exact component={Home1} />
+      <Route path="/about/about1" exact component={About1} />
+      <Route path="/contact/contact1" exact component={Contact1} />
+      <Route path="/contact" exact component={Contact} />
+      <Route path="/about" exact component={About} />
+      <Route path="/home" exact component={Home} />
     </Switch>
-  )
+  </Layout>)
+
+  let routeLogin = (<Switch>
+    <Route path="/signup" exact component={SignUp} />
+    <Route path="/" exact component={Login} />
+  </Switch>)
+  
+  /*if (!authenticate) {
+    routeMain = (<Switch>
+      <Route path="/signup" exact component={SignUp} />
+      <Route path="/" exact component={Login} />
+    </Switch>)
+  }
+  else {
+    routeMain =(<Layout>
+      <Switch>
+        <Route path="/myinfo/myteam" exact component={MemberList} />
+        <Route path="/myinfo/mydownloads" exact component={MyDownloads} />
+        <Route path="/myinfo/myprofile" exact component={MyPhoto} />
+        <Route path="/home/home2" exact component={Home2} />
+        <Route path="/home/home1" exact component={Home1} />
+        <Route path="/about/about1" exact component={About1} />
+        <Route path="/contact/contact1" exact component={Contact1} />
+        <Route path="/contact" exact component={Contact} />
+        <Route path="/about" exact component={About} />
+        <Route path="/home" exact component={Home} />
+      </Switch>
+    </Layout>)
+  }*/
+
 
   return (
     <div className="App">
-     {/*
-     <Switch>
-          <Route path="/myprofile/mydownloads" exact component={MyDownloads} />
-          <Route path="/myprofile/myphoto" exact component={MyPhoto} />
-          <Route path="/home/home2" exact component={Home2} />
-          <Route path="/home/home1" exact component={Home1} />
-          <Route path="/contact" exact component={Contact} />
-          <Route path="/about" exact component={About} />
-          <Route path="/home" exact component={Home} />
-          <Route path="/signup" exact component={SignUp} />
-          <Route path="/" exact component={Login} />
-      </Switch> */} 
+     
+      {routeMain}
+      {routeLogin}
 
-      <Layout>
-        {routeMain}
-      </Layout>
-      <Route path="/signup" exact component={SignUp} />
-      <Route path="/" exact component={Login} />
     </div>
   );
 }

@@ -10,6 +10,7 @@ const NavigationItems = () => {
             <NavigationItem link="/home">Home</NavigationItem>
             <NavigationItem link="/about">About</NavigationItem>
             <NavigationItem link="/contact">Contact</NavigationItem>
+            <NavigationItem link="/">Logout</NavigationItem>
         </ul>
 
     );

@@ -26,6 +26,10 @@ export const submenulist: ISubMenuList[] = [
             title: "Contact1",
             path: "contact/contact1"
         }]
+    },
+    {
+        name: "Logout",
+        menulist: [{ }]
     }
 ];
 

@@ -11,30 +11,35 @@ let auth: IAuth = {
 }
 
 type ACTIONTYPE =
-| {type: 'SET_AUTH'}
+| {type: 'AUTH_SUCCESS'}
+| {type: 'AUTH_LOGOUT'}
 
 const authreducer = (state: IAuth, action: ACTIONTYPE): IAuth => {
     switch(action.type){
-        case 'SET_AUTH':
-            debugger
-            console.log("auth", state.authenticate)
+        case 'AUTH_SUCCESS':
+            //debugger
+            console.log("auth success", state.authenticate)
             return {...state, authenticate: true}
+        case 'AUTH_LOGOUT':
+            console.log("Auth logout", state.authenticate)
+            return {...state, authenticate: false}
         default:
             return state
     }
 }
 
+console.log("test")
 
-export const authenticate: boolean = false;
+//export const authenticate: boolean = false;
 
-export const AuthenticationContext = createContext<{authenticate: boolean, dispatch: any}>({authenticate: false, dispatch: () =>  null});
+export const AuthenticationContext = createContext<{authvalue: IAuth, dispatch: any}>({authvalue: auth, dispatch: () =>  auth});
 
 export const AuthContext = () => {
 
     const [authvalue, dispatch] = useReducer(authreducer, auth)
 
     return (
-        <AuthenticationContext.Provider value={{authenticate, dispatch}}>
+        <AuthenticationContext.Provider value={{authvalue, dispatch}}>
             <App />
         </AuthenticationContext.Provider>
     )

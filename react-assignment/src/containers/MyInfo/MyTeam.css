@@ -1,13 +1,9 @@
 .MyTeam {
-    background-color: lightgray;
-     position:fixed;
-     top:8%;
-    left: 9%;
-    padding:0;
-    margin:0;
-    width: 100%;
+    padding: 30px;
+     position:absolute;
+     width: 100%;
     height: 100%;
-    transition: all 300ms ease-out;
+    transition: all 1s linear;
     overflow: scroll;
 }
 
@@ -32,7 +28,7 @@
     background-color: darkgray;
     box-sizing: border-box;
     border-radius: 5px;
-    transition: all 300ms ease-out;
+    transition: all 1s linear;
 }
 
 .AddFrom .mylabel {
@@ -56,5 +52,9 @@
 .form-heading{
     color: darkcyan;
     text-align: center;
+}
+
+.XGrid-Table{
+  
 }
 

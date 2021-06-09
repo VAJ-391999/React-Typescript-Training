@@ -13,10 +13,18 @@ const Layout = (props: Props): ReactElement => {
     return (
         <div className="Layout">
             <Toolbar />
-            <LeftSideMenu />
-            <main className="main">
-                {props.children}
-            </main>
+            <div className="float-container">
+                <Grid container spacing={2} >
+                    <Grid item xs={12} sm={2}>
+                        <LeftSideMenu />
+                    </Grid>
+                    <Grid item xs={12} sm={10}>
+                        <main className="main">
+                            {props.children}
+                        </main>
+                    </Grid>
+                </Grid>
+            </div>
         </div>
     );
 };

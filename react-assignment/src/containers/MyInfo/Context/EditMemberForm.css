@@ -1,7 +1,8 @@
 .EditForm{
     background-color: darkgray;
-    display: block;
     text-align: center;
+    transition:  all 1s ease-out;
+    
 }
 
 .EditForm h1{

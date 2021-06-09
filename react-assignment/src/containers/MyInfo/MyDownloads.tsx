@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import ExportIcon from '@material-ui/icons/ImportExport';
 import Layout from '../../components/Layout/Layout';
 import './MyDownlods.css';
 import { makeStyles } from '@material-ui/core/styles';
-import { XGrid } from '@material-ui/x-grid';
+import { XGrid, GridToolbarExport, GridToolbarContainer } from '@material-ui/x-grid';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell, { SortDirection } from '@material-ui/core/TableCell';
@@ -18,9 +19,7 @@ import {
   GridValueFormatterParams,
   GridSortDirection,
   GridLinkOperator,
-  GridFilterModel,
-  GridToolbarContainer,
-  GridToolbarExport
+  GridFilterModel
 } from '@material-ui/data-grid';
 
 const useStyles = makeStyles({
@@ -48,25 +47,31 @@ const columns: GridColDef[] = [
   {
     field: 'firstname',
     headerName: 'First Name',
-    width: 150
+    //width: 150,
+    flex: 1
   },
   {
     field: 'lastename',
     headerName: 'Last Name',
-    width: 150, resizable: true
+   // width: 150,
+    resizable: true,
+    flex: 1
   },
   {
     field: 'full',
     headerName: 'Full Name',
-    width: 160, valueGetter: GetFull, sortComparator: (v1, v2, cellParams1, cellParams2) =>
+    //width: 160, 
+    valueGetter: GetFull, sortComparator: (v1, v2, cellParams1, cellParams2) =>
       GetFull(cellParams1).localeCompare(GetFull(cellParams2)),
+      flex: 1
   },
   {
     field: 'date',
     headerName: 'Year',
-    width: 150,
+    //width: 150,
     valueFormatter: (params: GridValueFormatterParams) =>
       (params.value as Date).getFullYear(),
+      flex: 1
   }
 ];
 
@@ -102,7 +107,7 @@ const MyDownloads = () => {
         })
       })
   }, []);
-  console.log("DownloadData",downloadData) 
+  //console.log("DownloadData",downloadData) 
   
 
   const filterModel: GridFilterModel = {
@@ -135,7 +140,7 @@ const MyDownloads = () => {
      
       {downloadData && downloadData.filter((item: any) => {
         if(search === "") {
-          console.log("item", item)
+          //console.log("item", item)
           return item
         } else if (item.name.toLowerCase().includes(search.toLowerCase())) {
           return item
@@ -157,9 +162,19 @@ const MyDownloads = () => {
           filterModel={filterModel}
           pageSize={200}
           columnBuffer={2}
-
-        />
+          components={{
+            Toolbar: CustomToolbar
+          }}
+        /><br />
+       
       </div>
+      <h1>DataGrid</h1>
+      <DataGrid 
+          rows={rows1}
+          columns={columns}
+          /*components={{
+            Toolbar: CustomToolbar
+          }}*/ />
     </div>
 
   );

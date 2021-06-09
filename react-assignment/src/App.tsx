@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import Login from './components/LoginForm/Login';
 import './App.css';
-import { Route, Switch } from 'react-router-dom';
+import { Redirect, Route, Switch } from 'react-router-dom';
 import SignUp from './components/SignUpForm/SignUp';
 import Home from './containers/Home/Home';
 import About from './containers/About/About';
@@ -16,17 +16,18 @@ import Contact1 from './containers/Contact/Contact1';
 import MyTeam from './containers/MyInfo/MyTeam';
 import { MemberList } from './containers/MyInfo/Context/MyTeamMember'
 import AuthContext, { AuthenticationContext } from './containers/MyInfo/Context/Authcontext';
+import Logout from './containers/Logout/Logout';
 
 
 function App() {
 
-  const { authenticate, dispatch } = useContext(AuthenticationContext)
+  const { authvalue , dispatch } = useContext(AuthenticationContext)
 
 
-  console.log(authenticate)
+  console.log(authvalue.authenticate)
   let routeMain: JSX.Element | null = null
 
-  routeMain = (<Layout>
+  /*routeMain = (<Layout>
     <Switch>
       <Route path="/myinfo/myteam" exact component={MemberList} />
       <Route path="/myinfo/mydownloads" exact component={MyDownloads} />
@@ -44,12 +45,13 @@ function App() {
   let routeLogin = (<Switch>
     <Route path="/signup" exact component={SignUp} />
     <Route path="/" exact component={Login} />
-  </Switch>)
+  </Switch>)*/
   
-  /*if (!authenticate) {
+  if (!authvalue.authenticate) {
     routeMain = (<Switch>
       <Route path="/signup" exact component={SignUp} />
       <Route path="/" exact component={Login} />
+      <Redirect to="/" />
     </Switch>)
   }
   else {
@@ -65,17 +67,16 @@ function App() {
         <Route path="/contact" exact component={Contact} />
         <Route path="/about" exact component={About} />
         <Route path="/home" exact component={Home} />
+        <Route path="/logout" exact component={Logout} />
+        <Redirect to="/" />
       </Switch>
     </Layout>)
-  }*/
+  }
 
 
   return (
     <div className="App">
-     
-      {routeMain}
-      {routeLogin}
-
+        {routeMain}
     </div>
   );
 }

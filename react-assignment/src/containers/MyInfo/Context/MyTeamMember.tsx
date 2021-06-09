@@ -27,14 +27,17 @@ type ACTIONTYPE =
 const memberReducer = (state: ITeamMemberList[] = memberInit, action: ACTIONTYPE): any => {
     switch(action.type) {
         case 'ADD':
-            console.log("Add", action.payload)
+            //console.log("Add", action.payload)
             return  [...state, action.payload]
-        case 'REMOVE':
+        /*case 'REMOVE':
             //const HandleToggle = useCallback(() => console.log(action.payload, typeof action.payload), []);
             //const index = state.findIndex(x => x.id === action.payload);
-            //console.log("index for delete", state[index])
+            console.log("index for delete", state[action.payload])
             //debugger
-            return [...state, state.splice(action.payload, 1)]
+            return [...state, state.splice(action.payload, 1)]*/
+        case 'REMOVE':
+            console.log("index for delete", state[action.payload])
+            return state.filter(emp => emp.id !== action.payload)
         case 'EDIT':
             return state.map((mem, index) => mem.id === action.EditId ?  {...mem, membername: action.payload.membername, memberproject: action.payload.memberproject} : mem)
             

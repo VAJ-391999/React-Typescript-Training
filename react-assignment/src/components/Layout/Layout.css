@@ -1,7 +1,19 @@
 .main {
-    margin-left: 10%;
+    float: left;
+    background-color: lightgray;
+    position:fixed;
+    top:8%;
+    width: 85%;
+   padding:0px;
+   height: 100%;
+   transition: all 1s linear;
+   
 }
 
 .Layout {
     width: 100%;
+}
+
+.float-container {
+    display: flex;
 }

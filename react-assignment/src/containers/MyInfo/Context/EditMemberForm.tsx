@@ -3,16 +3,20 @@ import './EditMemberForm.css';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 
+
 type Props = {
     changeHandler: ChangeEventHandler,
     submitEdit: MouseEventHandler,
-    id: number,
+    id: number | null,
     cancleEdit: MouseEventHandler
 }
 
+
 const EditMemberForm = ({ changeHandler, submitEdit, id, cancleEdit }: Props) => {
     return (
-        <div className="EditForm">
+        <div className="EditForm" style={{
+           
+        }}>
             <h1>Edit Request for ID: {id}</h1><br />
             <label className="mylabel">Team Member Name: </label>
             <TextField

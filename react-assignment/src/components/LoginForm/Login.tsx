@@ -48,7 +48,7 @@ const Login = () => {
     });
 
     const[signIn, setSignIn] = useState<boolean>(false);
-    const {authenticate, dispatch} = useContext(AuthenticationContext)
+    const {authvalue, dispatch} = useContext(AuthenticationContext)
     const history = useHistory();
 
     const changeHandler = (e: any, inputIdentifier: string) => {
@@ -116,8 +116,9 @@ const Login = () => {
                 console.log(fetchResults.map((user: any,index: any) => {
                    if (user.Uemail === formInfo.username.value && user.Upassword === formInfo.password.value){
                        //debugger
-                       dispatch({type: 'SET_AUTH'})
+                       dispatch({type: 'AUTH_SUCCESS'})
                         setSignIn(true);
+                        console.log("login auth",authvalue.authenticate)
                         history.replace('/home');
                    }
                 }))

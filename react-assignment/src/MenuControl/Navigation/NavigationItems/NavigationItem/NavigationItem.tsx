@@ -16,6 +16,7 @@ const NavigationItem = (props: Props) => {
 
     const handleToggle = () => {
         console.log("toggle");
+        //debugger
         setOpen((prevOpen) => !prevOpen);
       };
 

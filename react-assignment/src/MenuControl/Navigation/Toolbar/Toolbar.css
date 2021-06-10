@@ -1,6 +1,3 @@
-.DesktopOnly {
-
-}
 
 .Toolbar {
     width: 100%;
@@ -21,4 +18,23 @@ header nav {
     height: 100%;
     width: 100%;
   }
+   /* small screens only */
+   @media (max-width: 499px){
+    .DesktopOnly {
+      display: none;
+    }
 
+    .Toolbar {
+        position: relative;
+    }
+
+    .Toolbar .Logo{
+        position: absolute;
+        float: right; 
+        top: 10%;
+        left: 80%;
+    }
+  }
+
+
+  

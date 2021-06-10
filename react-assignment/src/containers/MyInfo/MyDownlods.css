@@ -1,10 +1,10 @@
 .MyDownloads{
-    position:absolute;
-  overflow-x: scroll;
+    position:fixed;
+    width: 80%;
    height: 100%;
    transition: all 300ms ease-out;
-   overflow: scroll;
     text-align: center;
    padding: 60px;
    overflow: scroll;
+   margin-bottom: 100px;
 }

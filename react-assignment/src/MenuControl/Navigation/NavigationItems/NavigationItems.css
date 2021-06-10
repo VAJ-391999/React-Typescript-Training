@@ -9,3 +9,21 @@
     align-items: left;
     margin-left: 80%;
 }
+
+@media (max-width: 999px){
+    .NavigationItems {
+     margin-left: 70%;
+    }
+   }
+
+@media (max-width: 899px){
+    .NavigationItems {
+     margin-left: 60%;
+    }
+   }
+
+@media (max-width: 799px){
+   .NavigationItems {
+    margin-left: 50%;
+   }
+  }

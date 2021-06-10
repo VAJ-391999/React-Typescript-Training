@@ -152,7 +152,7 @@ const MyDownloads = () => {
       <h1>I am in Mydownloads</h1>
 
       <h3>Table view with grid</h3>
-      <div style={{ height: 300, width: '100%', flexGrow: 1, display: 'flex' }}>
+      <div style={{ height: 300, width: '90%', flexGrow: 1, display: 'flex' }}>
         <XGrid
           rows={rows1}
           columns={columns}
@@ -169,12 +169,15 @@ const MyDownloads = () => {
        
       </div>
       <h1>DataGrid</h1>
+      <div style={{ height: '100%', width: '30%', flexGrow: 1, display: 'flex' }}>
       <DataGrid 
           rows={rows1}
           columns={columns}
+          columnBuffer={2}
           /*components={{
             Toolbar: CustomToolbar
           }}*/ />
+          </div>
     </div>
 
   );

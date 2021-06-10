@@ -1,7 +1,8 @@
 .LeftSideMenu {
-    position: fixed;
-    scroll-behavior: smooth;
-    top: 55px;
+    position: relative;
+    margin: 0;
+    overflow: scroll;
+    top:8%;
     left: 0%;
     background-color: black;
     color: white;
@@ -15,9 +16,10 @@
     text-align: left;
     padding-right: 15px;
     /*float: left;*/
-    width: 30%;
-   
+}
 
+.LeftSideMenu .MuiGrid-item {
+    margin: 0!important;
 }
 
 .LeftSideMenu .MuiPaper-root {
@@ -32,4 +34,10 @@
 .LeftSideMenu .MuiAccordionSummary-root {
     margin: 5px !important;
     padding: 0 !important;
+}
+
+@media(max-width: 499px) {
+    .LeftSideMenu{
+        display: none;
+    }
 }

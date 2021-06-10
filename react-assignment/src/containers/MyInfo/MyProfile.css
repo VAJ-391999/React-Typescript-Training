@@ -1,11 +1,23 @@
 .MyProfile {
-    /*margin-top: 80px;
-     position:fixed;
-     top:8%;
-    left: 9%;
-    padding:30px;
-    margin:0;
-    height: 100%;
-    transition: all 1s linear;
-    overflow: scroll;*/
+   height: 100%;
+   overflow: scroll;
+}
+
+
+
+.MyProfile img {
+    height: 300px;
+    width: 150px;
+}
+
+.MyProfile ul {
+    list-style: none;
+}
+
+.MyProfile ul li {
+    margin: 15px;
+}
+
+.MyProfile .MuiTextField-root {
+    width: 60%;
 }

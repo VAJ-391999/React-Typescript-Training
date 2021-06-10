@@ -3,14 +3,14 @@ import Layout from '../../components/Layout/Layout';
 import './Contact.css';
 
 const Contact: FC = (): ReactElement => {
-    return(
-        <Layout>
-           <div className="Contact">
+    return (
+
+        <div className="Contact">
             <h1>
-                    I am in Contact page
+                I am in Contact page
                 </h1>
-           </div>
-        </Layout>
+        </div>
+
     );
 };
 

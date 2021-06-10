@@ -1,17 +1,25 @@
 .main {
     float: left;
     background-color: lightgray;
-    position:fixed;
+    position:relative;
     top:8%;
-    width: 85%;
+    width: 100%;
    padding:0px;
    height: 100%;
    transition: all 1s linear;
    
 }
 
-.Layout {
+.float-container {
+    position: fixed;
+    padding:0;
+    margin:0;
+
+    top:0;
+    left:0;
+
     width: 100%;
+    height: 100%;
 }
 
 .float-container {

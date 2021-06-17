@@ -21,3 +21,9 @@
 .EditForm .MuiFormLabel-root.Mui-focused {
     color: darkcyan;
 }
+
+@media (max-width: 499px) {
+    .EditForm .MuiFormControl-root {
+        width: 80%;
+    }   
+}

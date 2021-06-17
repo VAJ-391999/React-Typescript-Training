@@ -36,8 +36,8 @@
     padding: 0 !important;
 }
 
-@media(max-width: 499px) {
-    .LeftSideMenu{
+@media(max-width: 599px) {
+    .float-container .LeftSideMenu{
         display: none;
     }
 }

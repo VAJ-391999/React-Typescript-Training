@@ -27,3 +27,15 @@
     margin-left: 50%;
    }
   }
+
+  @media (max-width: 499px){
+    .NavigationItems {
+     margin-left: 40%;
+    }
+   }
+
+   @media (max-width: 399px){
+    .NavigationItems {
+     margin-left: 30%;
+    }
+   }

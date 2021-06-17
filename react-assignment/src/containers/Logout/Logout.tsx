@@ -2,9 +2,9 @@ import React, { useContext, useEffect } from 'react';
 import { Redirect, useHistory } from 'react-router-dom';
 import AuthContext, {AuthenticationContext} from '../../containers/MyInfo/Context/Authcontext';
 
-/*const Logout = () => {
+const Logout = () => {
     const {authvalue, dispatch} = useContext(AuthenticationContext);
-    debugger
+    //debugger
     console.log("Logout page")
     console.log(authvalue.authenticate)
     const onLogout = () => dispatch({type: 'AUTH_LOGOUT'})
@@ -16,9 +16,9 @@ import AuthContext, {AuthenticationContext} from '../../containers/MyInfo/Contex
     return (
         <h1>Hi</h1>
     )
-};*/
+};
 
-const Logout = () => {
+/*const Logout = () => {
 
     const {authvalue, dispatch} = useContext(AuthenticationContext);
     console.log("before",authvalue.authenticate)
@@ -30,5 +30,5 @@ const Logout = () => {
     }, [])
 
     return (<Redirect to="/" />)
-}
+}*/
 export default Logout;

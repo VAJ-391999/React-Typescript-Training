@@ -64,7 +64,7 @@ const MyPhoto = () => {
 
     return (
         <div className="MyProfile">
-            <h1>Hi</h1>
+            <h1>My Profile</h1>
             <Grid container spacing={2}>
                 <Grid item xs={12} sm={2}>
                     <img src={myphoto} alt="My Photo" onClick={handleOpen} /><br />

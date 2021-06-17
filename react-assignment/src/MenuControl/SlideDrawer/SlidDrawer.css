@@ -1,0 +1,10 @@
+.slidDrawer{
+    background-color: black;
+    width: 250px;
+    margin: 0;
+    height: 100%;
+}
+
+.slidDrawer .Logo{
+    position: fixed;
+}

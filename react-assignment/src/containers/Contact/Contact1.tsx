@@ -85,7 +85,7 @@ const Contact1: FC = (): ReactElement => {
 
     return (
         <div className="Contact">
-            <h1>I am in Contact1 page </h1>
+            <h1>Posts</h1>
             <div className="Posts">
                 <Grid container spacing={2}>
                     {posts && posts.slice((page - 1) * itemsPerPage, page * itemsPerPage)

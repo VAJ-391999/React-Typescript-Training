@@ -5,8 +5,8 @@ type Props = {
     clicked: MouseEventHandler 
 }
 
-const DrawerToggle: FC = (): ReactElement => (
-    <div className="DrawerToggle">
+const DrawerToggle: FC<Props> = (props: Props): ReactElement => (
+    <div className="DrawerToggle" onClick={props.clicked}>
         <div></div>
         <div></div>
         <div></div>

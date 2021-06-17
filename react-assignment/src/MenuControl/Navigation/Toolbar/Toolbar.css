@@ -19,8 +19,9 @@ header nav {
     width: 100%;
   }
    /* small screens only */
-   @media (max-width: 499px){
-    .DesktopOnly {
+   @media (max-width: 599px){
+    
+    .Toolbar .Logo {
       display: none;
     }
 
@@ -28,12 +29,7 @@ header nav {
         position: relative;
     }
 
-    .Toolbar .Logo{
-        position: absolute;
-        float: right; 
-        top: 10%;
-        left: 80%;
-    }
+    
   }
 
 

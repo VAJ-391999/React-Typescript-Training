@@ -1,13 +1,18 @@
-import React from 'react';
+import React, { MouseEventHandler, ReactElement, FC} from 'react';
 import './Toolbar.css';
 import NavigationItems from '../NavigationItems/NavigationItems';
 import Logo from '../../Logo/Logo';
 import DrawerToggle from '../../DrawerToggle/DrawerToggle';
 
-const Toolbar = () => {
+
+type Props = {
+    drawerToggleClicked: MouseEventHandler,
+}
+
+const Toolbar: FC<Props> = (props: Props): ReactElement => {
     return (
         <header className="Toolbar">
-            <DrawerToggle />
+            <DrawerToggle clicked={props.drawerToggleClicked} />
             <div>
                 <Logo />
             </div>

@@ -1,17 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import ExportIcon from '@material-ui/icons/ImportExport';
-import Layout from '../../components/Layout/Layout';
 import './MyDownlods.css';
 import { makeStyles } from '@material-ui/core/styles';
 import { XGrid, GridToolbarExport, GridToolbarContainer } from '@material-ui/x-grid';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell, { SortDirection } from '@material-ui/core/TableCell';
-import TableContainer from '@material-ui/core/TableContainer';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
+
 import {
   DataGrid,
   GridRowsProp,
@@ -47,31 +39,31 @@ const columns: GridColDef[] = [
   {
     field: 'firstname',
     headerName: 'First Name',
-    //width: 150,
-    flex: 1
+    width: 150,
+    //flex: 1
   },
   {
     field: 'lastename',
     headerName: 'Last Name',
-   // width: 150,
+    width: 150,
     resizable: true,
-    flex: 1
+    //flex: 1
   },
   {
     field: 'full',
     headerName: 'Full Name',
-    //width: 160, 
+    width: 160, 
     valueGetter: GetFull, sortComparator: (v1, v2, cellParams1, cellParams2) =>
       GetFull(cellParams1).localeCompare(GetFull(cellParams2)),
-      flex: 1
+      //flex: 1
   },
   {
     field: 'date',
     headerName: 'Year',
-    //width: 150,
+    width: 150,
     valueFormatter: (params: GridValueFormatterParams) =>
       (params.value as Date).getFullYear(),
-      flex: 1
+      //flex: 1
   }
 ];
 
@@ -169,7 +161,7 @@ const MyDownloads = () => {
        
       </div>
       <h1>DataGrid</h1>
-      <div style={{ height: '100%', width: '30%', flexGrow: 1, display: 'flex' }}>
+      <div style={{ height: '100%', width: '90%', flexGrow: 1, display: 'flex' }}>
       <DataGrid 
           rows={rows1}
           columns={columns}

@@ -1,8 +1,27 @@
 .Home {
-    overflow-y: scroll;
+    align-items: center;
+    overflow: scroll;
+    position: fixed;
+    height: 100%;
     padding: 30px;
+    width: 79%;
 }
 
-.Home {
-    
+.Home .MuiCard-root {
+    background-color: #191919;
+    color: white;
+    transition: all 500ms ease-in-out;
+}
+
+.Home .MuiCard-root:hover {
+    transform: scale(1.1);
+}
+
+.dashboardChart {
+    margin-top: 10px;
+    margin-bottom: 200px;
+}
+
+.Home .recharts-wrapper{
+    width: 730px;
 }

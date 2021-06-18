@@ -6,6 +6,7 @@ export const updateOject = (oldObject: any, updatedProperties: any) => {
 };
 
 export const checkValidity = ( value: any, rules: any ) :boolean => {
+    //debugger
     let isValid = true;
     if ( !rules ) {
         return true;
@@ -16,11 +17,15 @@ export const checkValidity = ( value: any, rules: any ) :boolean => {
     }
 
     if ( rules.minLength ) {
-        isValid = value.length >= rules.minLength && isValid
+        isValid = value.length >= rules.minLength && isValid;
+    }
+
+    if (value.length === 0){
+        isValid = false;
     }
 
     if ( rules.maxLength ) {
-        isValid = value.length <= rules.maxLength && isValid
+        isValid = value.length <= rules.maxLength && isValid;
     }
 
     if ( rules.isEmail ) {

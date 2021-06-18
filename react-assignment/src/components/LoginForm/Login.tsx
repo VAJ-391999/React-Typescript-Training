@@ -60,7 +60,7 @@ const Login = () => {
         setFormInfo((pre: any) => ({
             ...pre,
             [inputIdentifier]: {
-                ...formInfo,
+                ...formInfo[inputIdentifier],
                 value: e.target.value,
                 valid: checkValidity(e.target.value, formInfo[inputIdentifier].validation),
                 touched: true

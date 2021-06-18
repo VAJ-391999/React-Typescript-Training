@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import './UpdatePassword.css';
@@ -7,17 +7,19 @@ import { checkValidity } from '../../../shared/utility';
 import Button from '@material-ui/core/Button';
 import { useHistory } from 'react-router-dom';
 import AuthContext, { AuthenticationContext } from '../Context/Authcontext';
+import axios from 'axios';
+import results from '../../../components/UI/AxiosUrl/results';
 
 const UpdatePassword = () => {
 
     const [updateFormInfo, setUpdateFormInfo] = useState<any>({
-        name: {
+        email: {
             elementType: 'input',
             elementConfig: {
                 placeholder: ' Enter name'
 
             },
-            type: 'text',
+            type: 'email',
             value: '',
             validation: {
                 required: true,
@@ -59,6 +61,9 @@ const UpdatePassword = () => {
     });
 
     const history = useHistory();
+   useEffect(() => {
+    console.log("password",updateFormInfo["password"].validation)
+   }, [])
 
     const changeHandler = (e: any, inputIdentifier: string) => {
         const updaedLoginForm = {
@@ -68,7 +73,7 @@ const UpdatePassword = () => {
         setUpdateFormInfo((pre: any) => ({
             ...pre,
             [inputIdentifier]: {
-                ...updateFormInfo,
+                ...updateFormInfo[inputIdentifier],
                 value: e.target.value,
                 valid: checkValidity(e.target.value, updateFormInfo[inputIdentifier].validation),
                 touched: true
@@ -106,14 +111,58 @@ const UpdatePassword = () => {
         />
     })
 
+    type UpdatePass = {
+        Uname : string,
+        Uemail: string,
+        Upassword: string,
+        UsignupDate: string
+    }
+
+    
+
     const { authvalue, dispatch } = useContext(AuthenticationContext);
+    //axios.get('https://react-assignment-e4aa2-default-rtdb.firebaseio.com/test.json/-McTgak7OLKONkjeFHTp')
+                            //.then(resp => console.log("keydata",resp.data));
 
     const updateHandler = () => {
-        if(updateFormInfo.name.valid && updateFormInfo.oldpassword.valid && updateFormInfo.newpassword.valid){
-            if (updateFormInfo.oldpassword.value === updateFormInfo.newpassword.value) {
-                dispatch({type: 'AUTH_LOGOUT'})
-                history.replace('/');
-            }
+        if(updateFormInfo.email.valid && updateFormInfo.oldpassword.valid && updateFormInfo.newpassword.valid){
+            axios.get('https://react-assignment-e4aa2-default-rtdb.firebaseio.com/test.json')
+            .then(res => {
+                let employeeDetails: any = [];
+
+                for(let key in res.data) {
+                    employeeDetails.push({
+                        ...res.data[key],
+                        id: key
+                    })
+                }
+
+                
+
+                employeeDetails.map((emp: any, index: any) => {
+                    if (emp.Uemail === updateFormInfo.email.value) {
+                        if (updateFormInfo.oldpassword.value === updateFormInfo.newpassword.value) {
+
+                            const UpdateData: UpdatePass = {
+                                Uname : emp.Uname,
+                                Uemail: emp.Uemail,
+                                Upassword: updateFormInfo.newpassword.value,
+                                UsignupDate: emp.UsignupDate
+                            }
+                            /*axios.get('https://react-assignment-e4aa2-default-rtdb.firebaseio.com/test/-McTgak7OLKONkjeFHTp')
+                            .then(resp => console.log(resp.data));*/
+
+
+                            axios.put(`https://react-assignment-e4aa2-default-rtdb.firebaseio.com/test/${emp.id}.json`,UpdateData)
+
+                            dispatch({type: 'AUTH_LOGOUT'})
+                            history.replace('/');
+                        }
+                    }
+                })
+
+            })
+            
         }
       
     }

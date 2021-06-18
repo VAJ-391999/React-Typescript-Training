@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Input from '../UI/Input/Input';
 import Button from '@material-ui/core/Button';
 import { Link, Route, Redirect } from 'react-router-dom';
@@ -22,7 +22,7 @@ const SignUp = () => {
             value: '',
             validation: {
                 required: true,
-                minLength: 2,
+                minLength: 6,
               },
               valid: false,
             touched: false
@@ -54,7 +54,8 @@ const SignUp = () => {
             value: '',
             validation: {
                 required: true,
-                minLength: 6
+                minLength: 6,
+                maxLength: 24
               },
               valid: false,
             touched: false
@@ -62,17 +63,22 @@ const SignUp = () => {
     });
 
     const [signUp, setSignUp] = useState<boolean>(false);
+    useEffect(() => {
+        console.log("password",formInfo["password"].validation)
+       }, [])
 
     type ISignUp = {
         Uname : string,
         Uemail: string,
-        Upassword: string
+        Upassword: string,
+        UsignupDate: string
     }
 
     const SignUpData: ISignUp = {
         Uname : formInfo.name.value,
         Uemail: formInfo.email.value,
-        Upassword: formInfo.password.value
+        Upassword: formInfo.password.value,
+        UsignupDate: new Date().toDateString()
     }
 
     const signupHandler = () => {
@@ -92,12 +98,12 @@ const SignUp = () => {
         setFormInfo((pre: any) => ({
             ...pre,
             [inputIdentifier]: {
-                                ...formInfo,
+                                ...formInfo[inputIdentifier],
                                 value: e.target.value,
                                 valid: checkValidity(e.target.value, formInfo[inputIdentifier].validation ),
                                 touched: true}
         }))
-        console.log("updated login form", updaedLoginForm.name.value )
+        //console.log("updated login form", updaedLoginForm.name.value )
         
     }
 

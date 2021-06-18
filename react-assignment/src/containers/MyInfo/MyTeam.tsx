@@ -24,9 +24,6 @@ import {
 
 
 
-
-
-
 const MyTeam = () => {
 
     const getRowId: GridRowIdGetter = (row) => row.id;

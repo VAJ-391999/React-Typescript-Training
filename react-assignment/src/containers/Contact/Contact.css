@@ -4,6 +4,7 @@
     overflow: scroll;
     position: fixed;
     height: 100%;
+    transition: all 500ms ease-in-out;
 }
 
 .paginationDiv {
@@ -15,10 +16,18 @@
     padding: 30px;
 }
 
+
  .Contact .MuiCard-root {
      text-transform: capitalize;
+     color: white;
+     background-color: #191919;
+     transition: all 500ms ease-in-out;
  }
 
  .Contact .makeStyles-paper-10{
      text-transform: capitalize;
+ }
+
+ .Contact .MuiCard-root:hover {
+    transform: scale(1.1);
  }

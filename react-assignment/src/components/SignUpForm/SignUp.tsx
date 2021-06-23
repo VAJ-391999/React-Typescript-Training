@@ -14,9 +14,7 @@ const SignUp = () => {
         name: {
             elementType: 'input',
             elementConfig: {
-               
                 placeholder: ' Enter Name'
-
             },
             type: 'text',
             value: '',
@@ -26,6 +24,7 @@ const SignUp = () => {
               },
               valid: false,
             touched: false
+            
         },
         email: {
             elementType: 'input',
@@ -55,7 +54,8 @@ const SignUp = () => {
             validation: {
                 required: true,
                 minLength: 6,
-                maxLength: 24
+                maxLength: 24,
+                isSmallLetter: true
               },
               valid: false,
             touched: false

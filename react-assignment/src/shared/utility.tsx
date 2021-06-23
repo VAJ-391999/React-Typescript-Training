@@ -33,8 +33,15 @@ export const checkValidity = ( value: any, rules: any ) :boolean => {
         isValid = pattern.test( value ) && isValid
     }
 
+    ///^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/
+
     if ( rules.isNumeric ) {
         const pattern = /^\d+$/;
+        isValid = pattern.test( value ) && isValid
+    }
+
+    if(rules.isSmallLetter) {
+        const pattern = /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])/;
         isValid = pattern.test( value ) && isValid
     }
 

@@ -4,17 +4,22 @@ import AuthContext, {AuthenticationContext} from '../../containers/MyInfo/Contex
 
 const Logout = () => {
     const {authvalue, dispatch} = useContext(AuthenticationContext);
-    //debugger
-    console.log("Logout page")
-    console.log(authvalue.authenticate)
+    console.log("before",authvalue.authenticate)
+    const history = useHistory();
     const onLogout = () => dispatch({type: 'AUTH_LOGOUT'})
-   
-    useEffect(() => {
-        onLogout()
-    }, [onLogout])
+
+   useEffect(() => {
+
+   })
+
+   const out = () => {
+       history.replace('/')
+   }
 
     return (
-        <h1>Hi</h1>
+        <div>
+            <h1>Hi</h1>
+        </div>
     )
 };
 

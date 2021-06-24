@@ -51,6 +51,7 @@ function App() {
     routeMain = (<Switch>
       <Route path="/signup" exact component={SignUp} />
       <Route path="/" exact component={Login} />
+      <Route path="/logout" exact component={Logout} />
       <Redirect to="/" />
     </Switch>)
   }

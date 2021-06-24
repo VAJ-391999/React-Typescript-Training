@@ -9,7 +9,7 @@ import { useHistory } from 'react-router-dom';
 import AuthContext, { AuthenticationContext } from '../../containers/MyInfo/Context/Authcontext';
 import { checkValidity } from '../../shared/utility';
 import axios from 'axios';
-import Home from '../../containers/Home/Home';
+import GoogleLogin from 'react-google-login';
 
 
 
@@ -145,6 +145,11 @@ const Login = () => {
         </>
     );
 
+    const responseGoogle = (response: any) => {
+        console.log(response);
+        console.log(response.profileObj);
+    }
+
 
 
     return (
@@ -153,6 +158,15 @@ const Login = () => {
             <div className="LoginForm">
                 {content}
             </div>
+
+            <GoogleLogin 
+                clientId="820233922861-e16qpbhmv8bphb75j36cpn6lh97iokll.apps.googleusercontent.com"
+                buttonText="Login"
+                onSuccess={(response) => responseGoogle(response)}
+                onFailure={(response) => responseGoogle(response)}
+                cookiePolicy={'single_host_origin'}
+                className="GoogleLogin"
+            />
                
         </div>
     );

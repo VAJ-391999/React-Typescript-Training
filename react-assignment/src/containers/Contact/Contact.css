@@ -5,6 +5,7 @@
     position: fixed;
     height: 100%;
     transition: all 500ms ease-in-out;
+    width: 80%;
 }
 
 .paginationDiv {
@@ -31,3 +32,27 @@
  .Contact .MuiCard-root:hover {
     transform: scale(1.1);
  }
+
+ .mapSection{
+     margin-bottom: 200px;
+ }
+
+ .Contact .contact-heading{
+     display: inline;
+ }
+
+ .XGrid-Table {
+    transition:all 0.3s ease-in-out;
+ }
+
+ .deleteclient:hover {
+     border-color: red;
+     color: red;
+ }
+
+ .editclient:hover {
+    border-color: darkcyan;
+    color: darkcyan;
+ }
+
+ 

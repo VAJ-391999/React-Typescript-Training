@@ -62,14 +62,25 @@
     margin: 15px!important;
 }
 
+.GoogleLogin{
+    position: absolute;
+    top: 95%;
+    left: 50%;
+    display: flex;
+    width: 40%;
+    transform: translate(-50%,-95%);
+}
+
 @media (max-width: 599px){
-    .LoginForm{
+    .LoginForm,
+    .GoogleLogin{
         width: 80%;
     }
 }
 
 @media (max-width: 768px){
-    .LoginForm{
+    .LoginForm,
+    .GoogleLogin{
         width: 80%;
     }
 }

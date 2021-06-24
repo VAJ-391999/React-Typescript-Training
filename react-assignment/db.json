@@ -1,0 +1,23 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "users": [
+    {
+      "name": "devid",
+      "email": "devid@gmail.com",
+      "address": "USA",
+      "id": 1
+    },
+    {
+      "name": "Niki",
+      "email": "niki@gmail.com",
+      "address": "India",
+      "id": 2
+    }
+  ]
+}

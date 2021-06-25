@@ -1,3 +1,21 @@
 .About {
     margin-top: 60px;
 }
+
+.About .react-chatbot-kit-chat-container{
+    width: 50%;
+    margin: 0;
+    display: inline-block;
+}
+
+.About .react-chatbot-kit-chat-bot-message{
+    margin-left: 0;
+}
+
+.About .react-chatbot-kit-user-avatar-container{
+    background-color: darkcyan;
+}
+
+.About .react-chatbot-kit-user-avatar-container path {
+    color: black;
+}

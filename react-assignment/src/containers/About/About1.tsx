@@ -1,4 +1,8 @@
 import React, { ReactElement, FC } from 'react';
+import Chatbot from 'react-chatbot-kit';
+import config from './MyChatbot/config';
+import messageparser from './MyChatbot/MessageParser';
+import actionprovide from './MyChatbot/ActionProvider';
 import './About.css'
 
 const About1: FC = (): ReactElement => {
@@ -6,8 +10,11 @@ const About1: FC = (): ReactElement => {
 
         <div className="About">
             <h1>
-                I am in About1 page
+               Ask Your Questions.....
             </h1>
+            <div>
+                <Chatbot config={config} messageParser={messageparser} actionProvider={actionprovide} />
+            </div>
         </div>
 
     );

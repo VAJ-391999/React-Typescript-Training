@@ -1,0 +1,58 @@
+.SignUp {
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    background: url('../asserts/sea-summer.jpg') no-repeat center center fixed;
+    background-size: 100% 100%;
+    content: '';
+    min-width: 100%;
+    min-height: 100%;
+    text-align: center;
+    z-index: -1;
+    display: block;
+}
+
+.SignUp #my-input {
+    margin-top: 10px;
+}
+
+.SignUp .Signup-form{
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: auto;
+    padding: 30px;
+    margin: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 10px #000 !important;
+    color:whitesmoke;
+}
+
+.SignUp .MuiFormControl-root{
+    width: 500px;
+    margin: 20px;
+}
+
+
+
+.SignUp .MuiInput-underline:after {
+    border-bottom: 2px solid whitesmoke;
+}
+
+.SignUp .MuiFormControl-root .Mui-focused {
+    color: whitesmoke;
+}
+
+.SignUp .MuiFormLabel-root {
+    color: black;
+    font-size: 20px;
+}
+
+.SignUp .signup-msg{
+    margin-bottom: 15px;
+    color: red;
+}

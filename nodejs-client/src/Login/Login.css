@@ -1,0 +1,78 @@
+.Login {
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    background: url('../asserts/sea-summer.jpg') no-repeat center center fixed;
+    background-size: 100% 100%;
+    content: '';
+    min-width: 100%;
+    min-height: 100%;
+    text-align: center;
+    z-index: -1;
+    display: block;
+    color:whitesmoke;
+}
+
+.Login .MuiFormControl-root{
+    width: 500px;
+    margin: 20px;
+    transition: all 0.3s ease-in-out;
+}
+
+.Login .MuiFormLabel-root {
+    color: whitesmoke;
+    font-size: 20px;
+}
+
+.Login #my-input {
+    margin-top: 10px;
+}
+
+.Login .MuiInputBase-input {
+    color: whitesmoke;
+}
+.Login .MuiInput-underline:after {
+    border-bottom: 2px solid whitesmoke;
+}
+
+.Login .MuiFormControl-root .Mui-focused {
+    color: whitesmoke;
+}
+
+.Login .loginform{
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: auto;
+    padding: 30px;
+    margin: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 10px #000 !important;
+    color:whitesmoke;
+}
+
+.Login button {
+    width: 90%;
+    
+}
+
+.Login .Msg-div {
+    margin-bottom: 15px;
+    color: red;
+}
+
+.Login a{
+    color: whitesmoke;
+    text-decoration: none;
+}
+.Login a:hover {
+    color: #f0c420;
+}
+
+.Login h4 span{
+    color: #f0c420;
+}

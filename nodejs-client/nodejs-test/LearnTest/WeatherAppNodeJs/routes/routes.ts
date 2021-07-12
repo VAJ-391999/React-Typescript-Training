@@ -16,9 +16,11 @@ prouter.post('/postdata', (request: any, response: any) => {
     prequests(`http://api.openweathermap.org/data/2.5/weather?q=${request.body.cName}&appid=5ae591762ca1938ecc9cddeafe00f8d4`)
     .on('data', function (chunk: any) {
         response.setHeader("Access-Control-Allow-Origin", "*")
+        console.log(chunk)
         response.write(chunk)
         response.end()
     })
 })
+
 
 module.exports = prouter;

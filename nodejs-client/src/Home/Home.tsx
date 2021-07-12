@@ -16,14 +16,12 @@ import './Home.css'
 const Home = () => {
 
     const [day, setDay] = useState<string>("")
+    const [cityList, setCityList] = useState<string[]>([])
     const [cityName, setCityName] = useState<{cName: string}>({ cName: "" });
     const [collectedData, setCollectedData] = useState({
         location: "",
         country: "",
         temperature: 0,
-        tempMin: 0,
-        tempMax: 0
-
     });
 
     let currentTime = new Date();
@@ -67,23 +65,36 @@ const Home = () => {
     }
 
     useEffect(() => {
+        const cList: string[] = [];
+        axios.get('http://localhost:4001/weather/city')
+        .then(res => {
+            res.data.map((city: any,index: any) => {
+                cList.push(city.city_name)
+            })
+            setCityList(cList);
+        })
+    }, [])
+
+    //console.log(cityList)
+
+    useEffect(() => {
 
 
         let dayName = weekdays[currentTime.getDay()] + " | " + months[month] + " " + date + " | " + hours + ":" + minutes + period;
         setDay(dayName);
 
-        axios.get('http://localhost:4003/api/members/getdata')
+        axios.get('http://localhost:4001/weather/citydefault')
             .then(res => {
-                const sData = res.data;
-                console.log(typeof sData, sData)
-                setCollectedData({
-                    ...collectedData,
-                    location: sData.name,
-                    country: sData.sys.country,
-                    temperature: sData.main.temp,
-                    tempMin: sData.main.temp_min,
-                    tempMax: sData.main.temp_max
+                res.data.data.map((item: any, index: any)=> {
+                    const sData = item;
+                    setCollectedData({
+                        ...collectedData,
+                        location: sData.city_name,
+                        country: sData.country_code,
+                        temperature: sData.temp,
+                    })
                 })
+                
             })
         //console.log(cityName.cName)
     }, [])
@@ -95,23 +106,28 @@ const Home = () => {
         }
     };
 
-    console.log(cityName)
+    //console.log(cityName)
+    //axios.post('http://localhost:4003/api/members/postdata', {cName: cityName.cName}, axiosConfig)
+    //axios.post('http://localhost:4001/weather/city', {cName: cityName.cName}, axiosConfig)
 
     const handleCity = (event: any) => {
         event.preventDefault();
         console.log("Post")
-        const jsonData = axios.post('http://localhost:4003/api/members/postdata', { cName: cityName.cName }, axiosConfig)
+        console.log("city name", cityName.cName)
+        const cname: string = cityName.cName;
+        axios.post('http://localhost:4001/weather/city', {cName: cityName.cName}, axiosConfig)
             .then(res => {
                 console.log(typeof res.data, res.data)
-                const sData = res.data;
-                setCollectedData({
-                    ...collectedData,
-                    location: sData.name,
-                    country: sData.sys.country,
-                    temperature: sData.main.temp,
-                    tempMin: sData.main.temp_min,
-                    tempMax: sData.main.temp_max
+             res.data.data.map((item: any,index: any) => {
+                    const sData = item;
+                    setCollectedData({
+                        ...collectedData,
+                        location: sData.city_name,
+                        country: sData.country_code,
+                        temperature: sData.temp,
+                    })
                 })
+               
             })
 
     }
@@ -128,10 +144,11 @@ const Home = () => {
                         value={cityName.cName}
                         name="city"
                         onChange={(event: any) => { setCityName({ cName: event.target.value }) }}
+                        style={{overflow: 'scroll'}}
                     >
-                        <MenuItem value="pune">Pune</MenuItem>
-                        <MenuItem value="gujarat">Gujarat</MenuItem>
-                        <MenuItem value="mumbai">Mumbai</MenuItem>
+                        {cityList.slice(0,10).map((cityValue, index) => {
+                            return <MenuItem value={cityValue.toLowerCase()} key={index}>{cityValue}</MenuItem>
+                        })}
                     </Select>
                 </FormControl>
             </form>
@@ -144,11 +161,12 @@ const Home = () => {
                     <div className="cityinfo">
                         <h2 className="location">{collectedData.location} , {collectedData.country}</h2>
                         <h4>{day}</h4>
-                        <h3>{eval(((collectedData.temperature - 32) * (5 / 9)).toFixed(2))} C</h3>
-                        <h4>Temp_Min {collectedData.tempMin} | Temp_Max {collectedData.tempMax}</h4>
+                        <h3>{collectedData.temperature} C</h3>
                     </div>
                     <h3>Have an Account ? <NavLink to="/login">Login</NavLink></h3>
                 </Card> 
+
+                
            
         </div>
     )

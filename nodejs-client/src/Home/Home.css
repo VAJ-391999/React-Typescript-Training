@@ -55,3 +55,7 @@
     border: 1px solid #f0c420 !important;
     color: #f0c420;
 }
+
+.MuiPopover-paper {
+    overflow-y: visible !important;
+}

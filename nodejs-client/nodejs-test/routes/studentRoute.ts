@@ -1,6 +1,6 @@
 const Student = require("../models/StudentsModel");
 //const express = require("express");
-const RequireAuth = require('../middleware/authMiddleware');
+var fn = require('../middleware/authMiddleware');
 const srouter = require("express").Router();
 
 srouter.get("/student", async (req: any, res: any) => {
@@ -28,7 +28,7 @@ srouter.get("/student/:id", async (req: any, res: any) => {
     }
 })
 
-srouter.delete("/student/:id", /*requireAuth,*/ async (req: any, res: any) => {
+srouter.delete("/student/:id", fn.requireAuth, async (req: any, res: any) => {
     try {
         const id = req.params.id
         const studentData = await Student.findByIdAndDelete(id)
@@ -45,7 +45,7 @@ srouter.delete("/student/:id", /*requireAuth,*/ async (req: any, res: any) => {
     }
 })
 
-srouter.patch("/student/:id", /*requireAuth,*/async (req: any, res: any) => {
+srouter.patch("/student/:id", fn.requireAuth,async (req: any, res: any) => {
     try {
         const _id = req.params.id
         const studentData = await Student.findByIdAndUpdate(_id, req.body, {new : true})
@@ -63,7 +63,7 @@ srouter.patch("/student/:id", /*requireAuth,*/async (req: any, res: any) => {
 }
 })
 
-srouter.post("/student", /*RequireAuth,*/async (req: any, res: any) => {
+srouter.post("/student", fn.requireAuth,async (req: any, res: any) => {
 
     try {
         const student = new Student(req.body)

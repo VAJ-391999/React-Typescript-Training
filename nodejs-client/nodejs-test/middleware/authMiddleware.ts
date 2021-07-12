@@ -1,7 +1,7 @@
 
 const User = require('../models/SignUpModels');
 
-const requireAuth = (request: any, res: any, next: any) => {
+exports.requireAuth = function(request: any, res: any, next: any) {
     let loginToken = "";
     console.log(request.headers.cookie)
     const cookieData = request.headers.cookie.split(';');
@@ -29,7 +29,7 @@ const requireAuth = (request: any, res: any, next: any) => {
     }
 }
 
-const checkUser = (req: any, res: any, next: any) => {
+exports.checkUser = function(req: any, res: any, next: any) {
     let loginToken = "";
     console.log(req.headers.cookie)
     const cookieData = req.headers.cookie.split(';');
@@ -61,4 +61,5 @@ const checkUser = (req: any, res: any, next: any) => {
     }
 }
 
-module.exports = { requireAuth, checkUser };
+//module.exports.requireAuth = requireAuth;
+//module.exports.checkUser = checkUser;

@@ -12,7 +12,7 @@ const routeCity = require('./models/CityModel');
 const data = require('./LearnTest/UserApi/useapi.json')
 const cors = require('cors')
 
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 4001;
 
 dotenv.config()
 

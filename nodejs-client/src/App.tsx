@@ -9,6 +9,7 @@ import Layout from './Layout/Layout';
 import MyWorkSpace from './MyWorkSpace/MyWorkSpace';
 import Inbox from './Inbox/Inbox';
 import { useDispatch, useSelector } from 'react-redux';
+import CityData from './Dashboard/CityData';
 
 
 
@@ -39,6 +40,7 @@ const App = () => {
                     <Route path="/dashboard" component={Dashboard} exact />
                     <Route path="/myworkspace" component={MyWorkSpace} exact />
                     <Route path="/inbox" component={Inbox} exact />
+                    <Route path="/citydata" component={CityData} exact />
                     {redirectTemp}
                 </Layout>
             </Switch>

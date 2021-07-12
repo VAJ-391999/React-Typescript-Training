@@ -4,7 +4,7 @@ const ujwt = require('jsonwebtoken');
 const urequests = require('requests');
 const ubcrypt = require('bcryptjs')
 const SignUpTemplateCopy = require('../models/SignUpModels');
-//import { checkUser } from '../middleware/authMiddleware';
+const fun =  require('../middleware/authMiddleware');
 
 
 urouter.post('/signup', async (request: any, response: any) => {
@@ -94,7 +94,7 @@ urouter.post('/login', async (request: any, response: any) => {
 })
 
 
-urouter.get('/dashboard', /*checkUser,*/ (request: any, response: any) => {
+urouter.get('/dashboard', fun.checkUser, (request: any, response: any) => {
     console.log(`Dashboard time get cookie ${request.headers.cookie}`)
     let loginToken = "";
     

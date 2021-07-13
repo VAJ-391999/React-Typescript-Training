@@ -7,6 +7,6 @@ export const accordionData = [
     },
     {
         heading: 'My Workspace',
-        itemList : ['Inbox', 'Starred', 'Send email', 'Drafts']
+        itemList : ['Inbox','citydata', 'Starred', 'Send email', 'Drafts']
     }
 ]

@@ -20,7 +20,7 @@ const SignUp = () => {
         event.preventDefault();
         //alert('form submitted successfully')
         //debugger
-        axios.post('http://localhost:4000/app/signup', userDetails)
+        axios.post('http://localhost:4001/app/signup', userDetails)
         .then(res => {
             console.log(res.data)
             setSignUpStatus(res.data.msg)

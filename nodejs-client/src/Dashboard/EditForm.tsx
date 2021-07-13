@@ -17,13 +17,13 @@ const EditForm = (props: Props) => {
     });
 
     const formSubmit = () => {
-        axios.patch(`http://localhost:4000/restfulapi/student/${props.index}`,oldData, {withCredentials: true})
+        axios.patch(`http://localhost:4001/restfulapi/student/${props.index}`,oldData, {withCredentials: true})
             .then(res => console.log(res.data))
             .catch(err => console.log(err))
     }
     useEffect(() => {
         console.log(props.index)
-        axios.get(`http://localhost:4000/restfulapi/student/${props.index}`, {withCredentials: true})
+        axios.get(`http://localhost:4001/restfulapi/student/${props.index}`, {withCredentials: true})
             .then(res => {
                 console.log(res.data)
                 setOldData({

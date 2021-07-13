@@ -118,15 +118,13 @@ const Home = () => {
         axios.post('http://localhost:4001/weather/city', {cName: cityName.cName}, axiosConfig)
             .then(res => {
                 console.log(typeof res.data, res.data)
-             res.data.data.map((item: any,index: any) => {
-                    const sData = item;
+                const sData = res.data;
                     setCollectedData({
                         ...collectedData,
                         location: sData.city_name,
                         country: sData.country_code,
                         temperature: sData.temp,
                     })
-                })
                
             })
 

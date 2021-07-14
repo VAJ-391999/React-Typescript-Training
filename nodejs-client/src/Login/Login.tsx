@@ -27,7 +27,7 @@ const Login = () => {
     const loginFormSubmit = (event: any) => {
         event.preventDefault();
 
-        axios.post('http://localhost:4001/app/login', loginDetails, { withCredentials: true })
+        axios.post('http://localhost:4002/app/login', loginDetails, { withCredentials: true })
             .then(res => {
                 console.log("After post", res.data)
                 setLoginMsg({ ...loginMsg, msg: res.data.msg })

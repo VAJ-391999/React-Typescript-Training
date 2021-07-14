@@ -16,7 +16,7 @@ const AddForm = (props : Props) => {
     })
 
     const formSubmit = () => {
-        axios.post('http://localhost:4001/restfulapi/student', newStudent, {withCredentials: true})
+        axios.post('http://localhost:4002/restfulapi/student', newStudent, {withCredentials: true})
         .then(res => console.log(res.data))
         .catch(err => console.log(err))
     }

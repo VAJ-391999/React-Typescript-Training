@@ -32,7 +32,7 @@ const Dashboard = () => {
 
         
 
-        axios.get("http://localhost:4001/restfulapi/student", {withCredentials: true})
+        axios.get("http://localhost:4002/restfulapi/student", {withCredentials: true})
             .then(res => {
                 setStudent(res.data)
             })
@@ -40,7 +40,7 @@ const Dashboard = () => {
     }, [])
 
     const deleteStudent = (index : any) => {
-        axios.delete(`http://localhost:4001/restfulapi/student/${index}`, {withCredentials: true})
+        axios.delete(`http://localhost:4002/restfulapi/student/${index}`, {withCredentials: true})
             .then(res => console.log(res.data))
             .catch(err => console.log(err))
     }

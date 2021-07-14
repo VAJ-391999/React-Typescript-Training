@@ -48,7 +48,7 @@ const CityData = () => {
 
     useEffect(() => {
 
-        axios.get("http://localhost:4001/weather/city/savecity", { withCredentials: true })
+        axios.get("http://localhost:4002/weather/city/savecity", { withCredentials: true })
             .then(res => {
                 setCityData(res.data)
                 console.log(res.data)

@@ -11,10 +11,7 @@ const weatherCityList: any[] = [];
 const testList: any[] = [];
 const minTemp: any = 10;
 const maxTemp: any = 30;
-const adminDetails = {
-    username: "admin",
-    password: 12345
-}
+
 
 const Collection = cdb.addCollection("weatherData");
 

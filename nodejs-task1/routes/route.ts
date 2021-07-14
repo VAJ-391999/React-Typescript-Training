@@ -57,18 +57,18 @@ router.post('/token', (req: any, res: any) => {
 router.get('/test', authenticateToken, (req: any, res: any) => {
     const value = Collection.insert(serviceList)
     db.saveDatabase()
-    res.json({msg: "save"})
+    res.json({ msg: "save" })
 })
 
 router.get('/post', authenticateToken, (req: any, res: any) => {
-    
+
     if (req.user.username === adminDetails.username && req.user.password === adminDetails.password) {
         fs.readFile(pathvalue.resolve(__dirname, '../db.json'), "UTF-8", (err: any, data: any) => {
             var datajson = JSON.parse(data)
             datajson.collections.map((item: any) => {
                 res.json(item.data)
             })
-            
+
         })
     }
     else {
@@ -98,15 +98,15 @@ router.post('/servicename', authenticateToken, (req: any, res: any) => {
             datajson.collections.map((item: any) => {
                 item.data.map((ser: any, i: any) => {
                     console.log(ser)
-                    if(ser.serviceName === servicename){
+                    if (ser.serviceName === servicename) {
                         res.json(ser)
                     }
-                    else{
+                    else {
                         res.status(400).json(item.data)
                     }
                 })
                 res.json(item)
-                
+
             })
             //res.json({msg: "a"})
         })
@@ -117,30 +117,34 @@ router.post('/servicename', authenticateToken, (req: any, res: any) => {
 
 })
 
-router.delete('/delete', authenticateToken,(req: any, res: any) => {
+router.delete('/delete', authenticateToken, (req: any, res: any) => {
     let servicename = req.body.servicename;
-    //console.log(servicename)
-    //res.json({service: servicename})
+
 
     if (req.user.username === adminDetails.username && req.user.password === adminDetails.password) {
         fs.readFile(pathvalue.resolve(__dirname, '../db.json'), "UTF-8", (err: any, data: any) => {
             var datajson = JSON.parse(data)
-            console.log(datajson)
-            datajson.collections.map((item: any) => {
-                var deletitem = item.data.map((ser: any, i: any) => {
-                    console.log(ser)
-                    if(ser.serviceName === servicename){
-                        return ser
-                    }
-                    else{
-                        return "error"
-                    }
-                })
-                item.splice(deletitem, 1);
-                res.json(item)
-                
+            //console.log(datajson)
+            var tempdata: any[] = [];
+            datajson.collections.map((item: any, index: any) => {
+                tempdata = item.data
             })
-            //res.json({msg: "a"})
+            console.log("tempdata", tempdata)
+            if (tempdata.length === 0) {
+                return res.json({ message: "No services available." });
+            } else {
+                tempdata.forEach((element: any) => {
+                    if (element.serviceName == servicename) {
+                        console.log(element.serviceName)
+                        tempdata.splice(element.serviceName, 1);
+                        db.saveDatabase();
+                        return res.json({ message: "Deleted" });
+                    }
+                    else {
+                        return res.json({ message: "No such service found !" });
+                    }
+                });
+            }
         })
     }
     else {
@@ -160,15 +164,15 @@ router.patch('/update', authenticateToken, (req: any, res: any) => {
             datajson.collections.map((item: any) => {
                 item.data.map((ser: any, i: any) => {
                     console.log(ser)
-                    if(ser.serviceName === servicename){
+                    if (ser.serviceName === servicename) {
                         ser["servicePassword"] = req.body.servicepassword;
                     }
-                    else{
+                    else {
                         res.status(400).json(item.data)
                     }
                 })
                 res.json(item)
-                
+
             })
             //res.json({msg: "a"})
         })

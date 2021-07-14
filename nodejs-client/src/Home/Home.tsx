@@ -66,7 +66,7 @@ const Home = () => {
 
     useEffect(() => {
         const cList: string[] = [];
-        axios.get('http://localhost:4001/weather/city')
+        axios.get('http://localhost:4002/weather/city')
         .then(res => {
             res.data.map((city: any,index: any) => {
                 cList.push(city.city_name)
@@ -83,7 +83,7 @@ const Home = () => {
         let dayName = weekdays[currentTime.getDay()] + " | " + months[month] + " " + date + " | " + hours + ":" + minutes + period;
         setDay(dayName);
 
-        axios.get('http://localhost:4001/weather/citydefault')
+        axios.get('http://localhost:4002/weather/citydefault')
             .then(res => {
                 res.data.data.map((item: any, index: any)=> {
                     const sData = item;
@@ -108,14 +108,14 @@ const Home = () => {
 
     //console.log(cityName)
     //axios.post('http://localhost:4003/api/members/postdata', {cName: cityName.cName}, axiosConfig)
-    //axios.post('http://localhost:4001/weather/city', {cName: cityName.cName}, axiosConfig)
+    //axios.post('http://localhost:4002/weather/city', {cName: cityName.cName}, axiosConfig)
 
     const handleCity = (event: any) => {
         event.preventDefault();
         console.log("Post")
         console.log("city name", cityName.cName)
         const cname: string = cityName.cName;
-        axios.post('http://localhost:4001/weather/city', {cName: cityName.cName}, axiosConfig)
+        axios.post('http://localhost:4002/weather/city', {cName: cityName.cName}, axiosConfig)
             .then(res => {
                 console.log(typeof res.data, res.data)
                 const sData = res.data;

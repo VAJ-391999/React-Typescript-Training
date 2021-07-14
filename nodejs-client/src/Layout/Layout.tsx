@@ -96,7 +96,7 @@ const Layout = (props: any) => {
   console.log("Layout", myState.isAuthentication, myState.currentUserName)
 
   const logoutHandler = () => {
-    axios.get('http://localhost:4000/app/logout', { withCredentials: true })
+    axios.get('http://localhost:4002/app/logout', { withCredentials: true })
       .then(res => {
         console.log(res.data.msg)
         dispatch(authAction.isAuth(false))

@@ -1,0 +1,66 @@
+.plancard {
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .plancard .plan-heading {
+    padding: 15px 15px 5px 15px;
+    min-height: 56px;
+  }
+  
+  .plancard .plan-heading .plan-title-img {
+    float: left;
+    background-color: #f5f5f5;
+    border-radius: 50%;
+    height: 25px;
+    width: 25px;
+    position: relative;
+  }
+  
+  .plancard .plan-heading .plan-title-img img {
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .plancard .plan-heading .plan-title {
+    float: left;
+    max-width: 290px;
+    max-height: 48px;
+  }
+  
+  .plancard .plan-heading .plan-title span {
+    min-height: 48px;
+    text-align: left;
+    font: normal normal normal 20px/24px Roboto;
+    letter-spacing: 0.26px;
+    color: #000000de;
+    opacity: 1;
+  }
+  
+  .plancard .plan-text {
+    text-align: left;
+    font: normal normal normal 14px/20px Roboto;
+    letter-spacing: 0.25px;
+    color: #000000b3;
+    opacity: 1;
+    font-weight: 500;
+  }
+
+  .plancard .plan-text p {
+    min-height: 42px;
+  }
+  
+  .plancard .open-link a {
+    text-align: left;
+    font: normal normal normal 14px/17px Roboto;
+    letter-spacing: 1.25px;
+    color: #304393;
+    opacity: 1;
+    text-decoration: none;
+    font-weight: 700;
+  }
+  
